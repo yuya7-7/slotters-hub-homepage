@@ -14,8 +14,8 @@ function App() {
         <div className="container">
           <h1>ただのスロット情報局じゃない。<br />プロの「経済圏」へようこそ。</h1>
           <p>
-            Slotter's Hubは、パチスロで安定して勝ち続けたいすべてのプレイヤーのための
-            完全有料クローズドコミュニティです。
+            Slotter's Hubは、プロ目線で「ホールでの実践」に特化した、
+            本気で勝ち続けたいプレイヤーのための完全有料クローズドコミュニティです。
           </p>
           <a href="#plans" className="btn btn-cta">今すぐコミュニティに参加する</a>
         </div>
