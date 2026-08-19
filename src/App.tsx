@@ -33,9 +33,9 @@ function App() {
             <span className="logo-badge">広告ゼロ</span>
           </div>
           <nav className="nav-links">
-            <a href="#machines" className="nav-link">機種一覧</a>
-            <a href="#features" className="nav-link">コミュニティ特徴</a>
+            <a href="#features" className="nav-link">特徴</a>
             <a href="#plans" className="nav-link">VIPプラン</a>
+            <a href="#machines" className="nav-link">機種一覧</a>
           </nav>
           <a href="#plans" className="btn btn-primary header-cta">
             🔒 VIPプラン (月額¥500)
@@ -45,44 +45,7 @@ function App() {
 
       {/* Main Content Area */}
       <main className="main-content container">
-        {/* Search Bar */}
-        <div className="search-wrapper">
-          <SearchBar
-            searchTerm={searchTerm}
-            onSearchChange={setSearchTerm}
-          />
-        </div>
-
-        {/* Machine Cards Directory */}
-        <section id="machines" className="machines-section">
-          {filteredMachines.length > 0 ? (
-            <div className="machines-grid">
-              {filteredMachines.map((machine) => (
-                <MachineCard
-                  key={machine.id}
-                  machine={machine}
-                  onSelect={(m) => setSelectedMachine(m)}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="no-results card">
-              <p>「{searchTerm}」に一致する機種が見つかりませんでした。</p>
-              <button
-                className="btn btn-primary"
-                style={{ marginTop: '10px' }}
-                onClick={() => setSearchTerm('')}
-              >
-                検索をリセット
-              </button>
-            </div>
-          )}
-        </section>
-
-        {/* Section Divider */}
-        <hr className="section-divider" />
-
-        {/* Community 4 Features Section (4大カード) */}
+        {/* 1. Community 4 Features Section (Slotter's Hubの特徴) */}
         <section id="features" className="features-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
@@ -127,7 +90,7 @@ function App() {
         {/* Section Divider */}
         <hr className="section-divider" />
 
-        {/* VIP Pricing Section */}
+        {/* 2. VIP Pricing Section (VIPメンバーシップ参加プラン) */}
         <section id="plans" className="plans-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
@@ -165,6 +128,52 @@ function App() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Section Divider */}
+        <hr className="section-divider" />
+
+        {/* 3. Machines Section (機種検索 ＆ 無料攻略ポータル) */}
+        <section id="machines" className="machines-section">
+          <div className="section-title-wrap">
+            <h2 className="section-title">
+              <span>機種一覧（示唆・やめ時・狙い目）</span>
+            </h2>
+            <p className="section-subtitle">
+              気になる機種をタップすると、3大アクション（狙い目・やめ時・設定示唆）が即座に確認できます。
+            </p>
+          </div>
+
+          {/* Search Bar */}
+          <div className="search-wrapper">
+            <SearchBar
+              searchTerm={searchTerm}
+              onSearchChange={setSearchTerm}
+            />
+          </div>
+
+          {filteredMachines.length > 0 ? (
+            <div className="machines-grid">
+              {filteredMachines.map((machine) => (
+                <MachineCard
+                  key={machine.id}
+                  machine={machine}
+                  onSelect={(m) => setSelectedMachine(m)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="no-results card">
+              <p>「{searchTerm}」に一致する機種が見つかりませんでした。</p>
+              <button
+                className="btn btn-primary"
+                style={{ marginTop: '10px' }}
+                onClick={() => setSearchTerm('')}
+              >
+                検索をリセット
+              </button>
+            </div>
+          )}
         </section>
       </main>
 
