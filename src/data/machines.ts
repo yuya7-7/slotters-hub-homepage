@@ -13,7 +13,7 @@ export const MACHINES_DATA: Machine[] = [
     highlightSignal: 'ユリア=設定5↑ / ケンシロウ=設定4↑',
     aimPoints: {
       videoSummary: [
-        '【15G演出抑制仕様】AT終了後15Gまでは内部的に天国でも演出が発生しにくい。一般客が10G前後で捨てた台を15〜30Gまで回す立ち回りが極めて有効。',
+        '【15G演出抑制仕様】AT終了後15Gまでは内部的に天国でも演出が発生しにくい。前任者が10G前後で捨てた台を15〜30Gまで回す立ち回りが極めて有効。',
         '【第3停止リプレイの法則】第3停止時に「見渡し」または「振り向き」でリプレイが揃った場合は「天国以上濃厚（即ヤメ厳禁）」。',
         '【朝イチの恩恵】リセット時は天井が800Gに短縮＋高確スタート抽選も優遇。'
       ],
@@ -296,6 +296,109 @@ export const MACHINES_DATA: Machine[] = [
       points: [
         '【出玉率106%以上】リセット時（350G短縮）・スルー回数別ボーダー',
         'リミットレス（虹パト）15連終了後の0Gツッパ手順',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'godeater',
+    name: 'Lパチスロ ゴッドイーター リザレクション',
+    kana: 'えるぱちすろごっどいーたーりざれくしょん',
+    maker: '山佐',
+    type: 'スマスロ (AT)',
+    tags: ['人気急上昇', '山佐', 'スマスロ'],
+    ceilingSummary: '最大1000G ＋ 前兆（リセ時 600G短縮）',
+    yameDokiSummary: 'AT後 即ヤメ（天国前兆否定）',
+    highlightSignal: 'シオ=設定4↑ / コタツ=設定6確定',
+    aimPoints: {
+      videoSummary: [
+        '【朝イチ・短縮天井】リセット時は最大600G＋前兆に短縮。100G・300Gのゾーン当選率も優遇。',
+        '【ストーリー終了ボイス】ストーリーパート終了画面でサブ液晶をタッチすると設定示唆ボイスが発生。'
+      ],
+      triggerSignals: [
+        '液晶セリフ演出「赤文字」 ➔ 本前兆期待度特大（ツッパ）',
+        '非レア役時の「その調子です！」 ➔ 高確滞在濃厚',
+        'リセット台 ➔ 600G短縮天井狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、サブ液晶タッチボイス確認 ＋ 100G前兆否定で即ヤメ',
+      stopNg: 'シオ（設定4以上）、サクヤ（高設定示唆強）、セリフ赤出現台',
+      tip: '差枚プラス時は即ヤメ推奨。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🗣️ ストーリー終了時 サブ液晶ボイス（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: 'シオ', content: '「いただきま〜す」', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'エリナ', content: '「私、大きくなったら…」', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上濃厚', character: 'レン', content: '「あなたはそのアラガミを…」', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数示唆 [強]', character: 'サクヤ', content: '「私は、私のやるべきことを…」', meaning: '偶数設定示唆（強）', priority: 'warning' },
+          { badge: '高設定示唆', character: 'ソーマ', content: '「思い出ってのは、悪いことばかりでも…」', meaning: '高設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🏆 AT終了画面（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面', content: '全員集合（赤背景）/ こたつ画面', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: 'シオ（単独）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定3以上確定', character: '終了画面', content: 'リンドウ（単独）', meaning: '設定3以上確定！', priority: 'danger', action: 'ツッパ視野' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lゴッドイーター リザレクション 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】リセット時（600G短縮）・ゾーン狙い（100G/300G）思考停止ボーダー',
+        '漆黒の捕食者・有利切断条件の完全把握',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'tolove',
+    name: 'L ToLOVEるダークネス',
+    kana: 'えるとらぶるだーくねす',
+    maker: 'オリンピア',
+    type: 'スマスロ (AT)',
+    tags: ['人気急上昇', '平和', 'スマスロ'],
+    ceilingSummary: '最大999G ＋ 前兆（リセ時 650G短縮）',
+    yameDokiSummary: 'ST抜け即ヤメ（引き戻し確認後）',
+    highlightSignal: '良スタンプ=設定4↑ / 優スタンプ=設定5↑',
+    aimPoints: {
+      videoSummary: [
+        '【リセット短縮恩恵】設定変更時は天井が650G＋前兆に短縮。さらに初当り時のボーナス枚数優遇。',
+        '【STスルー天井】ST駆け抜けが連続している台は次回優遇措置あり。'
+      ],
+      triggerSignals: [
+        'アイキャッチ「赤背景」 ➔ 規定pt短縮濃厚（ツッパ）',
+        'リセット台 ➔ 650G短縮天井狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ST終了後、示唆スタンプ確認 ＋ 前兆なしで即ヤメ',
+      stopNg: '良スタンプ（設定4以上）、優スタンプ（設定5以上）、極スタンプ（設定6確定）出現台',
+      tip: '差枚数と連チャン状況に応じてヤメどきを厳格に守る。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 ST終了画面 スタンプ（設定確定）',
+        items: [
+          { badge: '設定6確定', character: 'スタンプ', content: '極スタンプ（虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'スタンプ', content: '優スタンプ（金）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'スタンプ', content: '良スタンプ（銀）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定3以上確定', character: 'スタンプ', content: '吉スタンプ（銅）', meaning: '設定3以上確定', priority: 'warning' },
+          { badge: '設定5期待度UP', character: '終了画面', content: 'メア（単独画面）', meaning: '設定5期待度大幅UP！', priority: 'warning', action: '様子見' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'L ToLOVEるダークネス 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】リセット時（650G短縮）・STスルー回数別ボーダー',
+        '愛すラッシュ・ハーレムモード移行条件のプロ見極め術',
         'ノリ打ち共有用メモ ＆ 現場Q&A',
         'Discordリアルタイム質問部屋'
       ]
