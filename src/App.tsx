@@ -37,37 +37,22 @@ function App() {
 
   return (
     <div className="app">
-      {/* Sticky Header */}
+      {/* Minimal Header */}
       <header className="header">
         <div className="container header-inner">
           <div className="logo-group">
-            <span className="logo-badge">広告ゼロ</span>
             <div className="logo-text">Slotter's Hub</div>
+            <span className="logo-badge">広告ゼロ</span>
           </div>
-          <nav className="nav-links">
-            <a href="#machines" className="nav-link">機種一覧</a>
-            <a href="#about" className="nav-link">特徴</a>
-            <a href="#plans" className="nav-link">VIPプラン</a>
-          </nav>
           <a href="#plans" className="btn btn-primary header-cta">
-            VIPメンバー登録
+            🔒 VIPプラン (月額¥500)
           </a>
         </div>
       </header>
 
-      {/* Hero & Search Section */}
-      <section className="hero-section">
-        <div className="container">
-          <div className="hero-badge">⚡ 3秒判別スロット攻略</div>
-          <h1 className="hero-title">
-            広告ゼロ・爆速検索。<br />
-            ホールで迷わない示唆＆やめどき
-          </h1>
-          <p className="hero-desc">
-            終了画面・ボイス・やめどきを完全テキスト化。<br />
-            重い広告サイトを開くことなく、片手で最速チェック。
-          </p>
-
+      {/* Main Search & Tool Area (Clean & Instant) */}
+      <main className="main-content container">
+        <div className="search-wrapper">
           <SearchBar
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
@@ -77,16 +62,8 @@ function App() {
             totalCount={MACHINES_DATA.length}
           />
         </div>
-      </section>
 
-      {/* Machine Directory Section */}
-      <section id="machines" className="machines-section container">
-        <div className="section-title-wrap">
-          <h2 className="section-title">
-            <span>人気機種 示唆・やめどき</span>
-          </h2>
-        </div>
-
+        {/* Machine Cards */}
         {filteredMachines.length > 0 ? (
           <div className="machines-grid">
             {filteredMachines.map((machine) => (
@@ -102,94 +79,45 @@ function App() {
             <p>「{searchTerm}」に一致する機種が見つかりませんでした。</p>
             <button
               className="btn btn-primary"
-              style={{ marginTop: '12px' }}
+              style={{ marginTop: '10px' }}
               onClick={() => {
                 setSearchTerm('')
                 setSelectedTag('all')
               }}
             >
-              検索条件をリセット
+              検索をリセット
             </button>
           </div>
         )}
-      </section>
 
-      {/* Community Features Section */}
-      <section id="about" className="features-section">
-        <div className="container">
-          <div className="section-title-wrap">
-            <h2 className="section-title">
-              <span>VIPコミュニティの強み</span>
-            </h2>
+        {/* Compact VIP Banner at Bottom */}
+        <section id="plans" className="vip-bottom-banner">
+          <div className="vip-banner-content">
+            <div className="vip-badge-sm">🔒 クローズドコミュニティ</div>
+            <h3 className="vip-banner-title">
+              差枚優遇ボーダー ＆ 稼働SOSはVIP限定
+            </h3>
+            <p className="vip-banner-desc">
+              出玉率106%以上の思考停止ボーダー・15G天国刈り・Discord即レス相談部屋が使い放題。
+            </p>
           </div>
-          <div className="features-grid">
-            <div className="card feature-card">
-              <div className="feature-icon">🔒</div>
-              <h3>106%思考停止ボーダー</h3>
-              <p>差枚優遇・冷遇・短縮を網羅した迷わないプロ基準の立ち回り。</p>
-            </div>
-            <div className="card feature-card">
-              <div className="feature-icon">🚨</div>
-              <h3>稼働中SOS・即レス相談</h3>
-              <p>「この演出出たけどツッパ？」などホールからの質問に即回答。</p>
-            </div>
-            <div className="card feature-card">
-              <div className="feature-icon">🤝</div>
-              <h3>ノリ打ち・仲間募集</h3>
-              <p>特日や設定狙いで軍資金・リスクを分散する募集フォーラム。</p>
-            </div>
-            <div className="card feature-card">
-              <div className="feature-icon">📱</div>
-              <h3>共有メモ＆現場Q&A</h3>
-              <p>パートナーにそのまま送れるコピペメモと現場疑問集。</p>
-            </div>
+          <div className="vip-banner-action">
+            <div className="vip-price-tag">月額 <strong>¥500</strong></div>
+            <a
+              href="https://mosh.jp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-cta"
+            >
+              VIPに参加する →
+            </a>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      {/* Pricing / VIP Membership Section */}
-      <section id="plans" className="plans-section">
-        <div className="container">
-          <div className="section-title-wrap">
-            <h2 className="section-title">
-              <span>VIPメンバーシップ</span>
-            </h2>
-          </div>
-          <div className="plans-grid" style={{ maxWidth: '480px', margin: '0 auto' }}>
-            <div className="card plan-card featured-plan">
-              <div className="plan-badge">人気No.1・現場特化型</div>
-              <h3 className="plan-name">Slotter's Hub VIP会員</h3>
-              <div className="plan-price">
-                <span className="currency">¥</span>500
-                <span className="period"> / 月</span>
-              </div>
-              <ul className="plan-benefits">
-                <li>🔥 全25機種以上の完全攻略ノート（106%思考停止ボーダー）</li>
-                <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル見放題</li>
-                <li>🚨 ホール稼働中SOS・即レス相談部屋（Discord）利用権</li>
-                <li>📱 ノリ打ち・パートナー共有用コピペメモ</li>
-                <li>🤝 ノリ打ち仲間募集・ホール状況共有フォーラム</li>
-              </ul>
-              <a
-                href="https://mosh.jp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-cta plan-btn"
-              >
-                VIPに参加してプロボーダーを見る →
-              </a>
-              <div className="plan-footer-note">
-                ※ いつでもワンクリックで解約可能です。
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
+      {/* Minimal Footer */}
       <footer className="footer">
         <div className="container footer-content">
-          <div className="footer-logo">Slotter's Hub</div>
           <p className="copyright">© 2026 Slotter's Hub. All rights reserved.</p>
         </div>
       </footer>
