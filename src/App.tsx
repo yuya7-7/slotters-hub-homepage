@@ -8,32 +8,20 @@ import './App.css'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTag, setSelectedTag] = useState('all')
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null)
 
-  // Extract all unique tags
-  const allTags = useMemo(() => {
-    const tagSet = new Set<string>()
-    MACHINES_DATA.forEach((m) => {
-      m.tags.forEach((t) => tagSet.add(t))
-    })
-    return Array.from(tagSet)
-  }, [])
-
-  // Filter machines based on search term and selected tag
+  // Filter machines purely based on search term
   const filteredMachines = useMemo(() => {
+    if (!searchTerm.trim()) return MACHINES_DATA
+    const term = searchTerm.toLowerCase().trim()
     return MACHINES_DATA.filter((machine) => {
-      const matchesSearch =
-        machine.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        machine.kana.includes(searchTerm) ||
-        machine.maker.toLowerCase().includes(searchTerm.toLowerCase())
-
-      const matchesTag =
-        selectedTag === 'all' || machine.tags.includes(selectedTag)
-
-      return matchesSearch && matchesTag
+      return (
+        machine.name.toLowerCase().includes(term) ||
+        machine.kana.includes(term) ||
+        machine.maker.toLowerCase().includes(term)
+      )
     })
-  }, [searchTerm, selectedTag])
+  }, [searchTerm])
 
   return (
     <div className="app">
@@ -50,16 +38,12 @@ function App() {
         </div>
       </header>
 
-      {/* Main Search & Tool Area (Clean & Instant) */}
+      {/* Main Content Area */}
       <main className="main-content container">
         <div className="search-wrapper">
           <SearchBar
             searchTerm={searchTerm}
             onSearchChange={setSearchTerm}
-            selectedTag={selectedTag}
-            onTagSelect={setSelectedTag}
-            tags={allTags}
-            totalCount={MACHINES_DATA.length}
           />
         </div>
 
@@ -80,10 +64,7 @@ function App() {
             <button
               className="btn btn-primary"
               style={{ marginTop: '10px' }}
-              onClick={() => {
-                setSearchTerm('')
-                setSelectedTag('all')
-              }}
+              onClick={() => setSearchTerm('')}
             >
               検索をリセット
             </button>

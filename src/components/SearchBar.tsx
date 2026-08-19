@@ -3,19 +3,11 @@ import React from 'react'
 interface SearchBarProps {
   searchTerm: string
   onSearchChange: (term: string) => void
-  selectedTag: string
-  onTagSelect: (tag: string) => void
-  tags: string[]
-  totalCount: number
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   searchTerm,
-  onSearchChange,
-  selectedTag,
-  onTagSelect,
-  tags,
-  totalCount
+  onSearchChange
 }) => {
   return (
     <div className="search-section">
@@ -24,7 +16,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <input
           type="text"
           className="search-input"
-          placeholder="機種名・ひらがな・メーカー名で爆速検索...（例: 北斗, モンキー, サミー）"
+          placeholder="機種名・ひらがなで検索...（例: 北斗, モンキー, かぐや様）"
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
         />
@@ -33,24 +25,6 @@ export const SearchBar: React.FC<SearchBarProps> = ({
             ✕
           </button>
         )}
-      </div>
-
-      <div className="filter-tags">
-        <button
-          className={`filter-btn ${selectedTag === 'all' ? 'active' : ''}`}
-          onClick={() => onTagSelect('all')}
-        >
-          すべて ({totalCount})
-        </button>
-        {tags.map((tag) => (
-          <button
-            key={tag}
-            className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
-            onClick={() => onTagSelect(tag)}
-          >
-            {tag}
-          </button>
-        ))}
       </div>
     </div>
   )
