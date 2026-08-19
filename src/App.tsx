@@ -3,12 +3,14 @@ import { MACHINES_DATA } from './data/machines'
 import type { Machine } from './types'
 import { MachineCard } from './components/MachineCard'
 import { MachineModal } from './components/MachineModal'
+import { TermsModal } from './components/TermsModal'
 import { SearchBar } from './components/SearchBar'
 import './App.css'
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedMachine, setSelectedMachine] = useState<Machine | null>(null)
+  const [isTermsOpen, setIsTermsOpen] = useState(false)
 
   // Filter machines purely based on search term
   const filteredMachines = useMemo(() => {
@@ -212,9 +214,18 @@ function App() {
         </section>
       </main>
 
-      {/* Minimal Footer */}
+      {/* Minimal Footer with Terms Link */}
       <footer className="footer">
         <div className="container footer-content">
+          <div className="footer-links">
+            <button
+              type="button"
+              className="footer-link-btn"
+              onClick={() => setIsTermsOpen(true)}
+            >
+              📜 コミュニティ利用規約・投稿ガイドライン
+            </button>
+          </div>
           <p className="copyright">© 2026 Slotter's Hub. All rights reserved.</p>
         </div>
       </footer>
@@ -223,6 +234,12 @@ function App() {
       <MachineModal
         machine={selectedMachine}
         onClose={() => setSelectedMachine(null)}
+      />
+
+      {/* Community Terms & Guidelines Modal */}
+      <TermsModal
+        isOpen={isTermsOpen}
+        onClose={() => setIsTermsOpen(false)}
       />
     </div>
   )
