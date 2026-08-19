@@ -212,6 +212,239 @@ export const MACHINES_DATA: Machine[] = [
     }
   },
   {
+    id: 'kaguya',
+    name: 'Lパチスロ かぐや様は告らせたい',
+    kana: 'えるぱちすろかぐやさまはこくらせたい',
+    maker: 'SANKYO',
+    type: 'スマスロ (AT)',
+    tags: ['高純増', 'SANKYO', 'スマスロ'],
+    ceilingSummary: '最大1100G（REG後900G）/ CZ最大7スルー',
+    yameDokiSummary: '130G引き戻し抜けヤメ',
+    highlightSignal: 'アイキャッチ赤=天井短縮 / 金枠=設定4↑',
+    aimPoints: {
+      videoSummary: [
+        '【REG後天井短縮】REG単発後は天井が液晶900G＋αに短縮。',
+        '【130G引き戻し仕様】ボーナス・EXTRA終了後は130G付近まで引き戻し高確率。特に「超BIGループ後」や「裏REG後」は引き戻し率が大幅UP。',
+        '【アイキャッチ赤の法則】ステージチェンジ時のアイキャッチが赤背景なら、規定チャンス目天井が大幅短縮濃厚。'
+      ],
+      triggerSignals: [
+        'アイキャッチ「赤背景」 ➔ 規定チャンス目短縮濃厚（次回CZまでツッパ）',
+        'REG後 ハマリ台 ➔ 900G短縮天井狙い',
+        'CZ 4スルー以上 ➔ スルー天井（最大7回）狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボーナス後、130Gの引き戻し前兆（マリアージュ等）否定で即ヤメ',
+      stopNg: '超BIGループ後、裏REG後、アイキャッチ赤背景が出現した台',
+      tip: '超BIGループ後は引き戻し期待度が大幅UPするため130Gまで必ずフォロー。'
+    },
+    settingSignals: [
+      {
+        categoryName: '📸 ボーナス終了画面（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面', content: '虹枠画面（かぐや＆白銀ウェディング）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: '赤枠画面（生徒会メンバー集合）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: '金枠画面（かぐや＆藤原）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: '終了画面', content: '藤原千花（水着 / パジャマ画面）', meaning: '高設定示唆（強）', priority: 'warning' },
+          { badge: '偶数設定示唆', character: '終了画面', content: '早坂愛（私服画面）', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🎨 アイキャッチ ＆ 時計示唆（モード・規定数）',
+        items: [
+          { badge: '天国濃厚', character: 'アイキャッチ', content: 'ステージチェンジ時「紫背景アイキャッチ」', meaning: '天国モード（130G以内当選）濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '規定数大幅短縮', character: 'アイキャッチ', content: 'ステージチェンジ時「赤背景アイキャッチ」', meaning: '規定チャンス目天井が大幅短縮濃厚！', priority: 'warning', action: '次回CZまでツッパ' },
+          { badge: 'チャンス目近し', character: '時計', content: '時計演出で長針・短針が「夜」を指す', meaning: '規定チャンス目回数到達が近い！', priority: 'normal' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lかぐや様は告らせたい 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】CZスルー回数・リセット短縮時の思考停止ボーダー',
+        '裏REG後・超BIGループ後の引き戻し刈り取り術',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'karakuri',
+    name: 'Lパチスロ からくりサーカス',
+    kana: 'えるぱちすろからくりさーかす',
+    maker: 'SANKYO',
+    type: 'スマスロ (AT)',
+    tags: ['万枚特化', 'SANKYO', 'スマスロ'],
+    ceilingSummary: '最大1200G / CZ最大4スルー',
+    yameDokiSummary: '天国前兆（100G）否定でヤメ',
+    highlightSignal: 'CZ終了画面 銀/金=天国 / 3スルー=ツッパ',
+    aimPoints: {
+      videoSummary: [
+        '【CZ終了画面の枠色】CZ失敗画面で銀枠は次回天国濃厚、金枠は次回天国＋高設定濃厚。',
+        '【フェイスレスPUSH】メニュー画面や通常時のPUSHで紫セリフが出たら次回CZ成功でAT直撃濃厚。',
+        '【CZスルー天井】最大4スルー（5回目のCZ）でAT直撃確定。3スルー以上はツッパ推奨。'
+      ],
+      triggerSignals: [
+        'CZ終了画面「勝＆鳴海（銀枠 / 金枠）」 ➔ 次回天国濃厚（ツッパ）',
+        'フェイスレスPUSH示唆（紫） ➔ 次回CZ成功でAT直撃濃厚（ツッパ）',
+        'CZ 3スルー・4スルー台 ➔ AT直撃までツッパ'
+      ]
+    },
+    yameRules: {
+      stopOk: 'CZ失敗時・AT終了後、液晶100G前兆否定でヤメ（差枚マイナス時）',
+      stopNg: 'CZ 3スルー以上の台、銀枠・金枠画面が出現した台',
+      tip: 'CZスルー回数はデータ機ではなく液晶メニュー画面で必ず確認。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🎭 CZ・AT終了画面（設定＆モード示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面', content: '劇団全員集合（虹枠画面）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: 'フランシーヌ（赤枠画面）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: 'しろがね＆あるるかん（金枠画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '天国濃厚＋高設定', character: 'CZ終了画面', content: '勝＆鳴海（金枠画面）', meaning: '次回天国濃厚＋高設定期待度大！', priority: 'danger', action: '次回当選までツッパ' },
+          { badge: '天国濃厚', character: 'CZ終了画面', content: '勝＆鳴海（銀枠画面）', meaning: '次回天国モード濃厚！', priority: 'danger', action: '次回当選までツッパ' }
+        ]
+      },
+      {
+        categoryName: '🗣️ フェイスレスPUSH ＆ 幕引き示唆',
+        items: [
+          { badge: 'AT直撃濃厚', character: 'PUSHボイス', content: 'フェイスレスPUSH示唆（紫文字セリフ）', meaning: '次回CZ成功でAT直撃濃厚！', priority: 'danger', action: '次回CZまでツッパ' },
+          { badge: '高設定示唆 [強]', character: 'セリフ', content: '「悪魔め…」「笑顔のために…」', meaning: '高設定示唆（強）', priority: 'warning' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lからくりサーカス 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】CZスルー回数別（3スルー〜0Gツッパ）ボーダー',
+        '運命の一劇失敗後・有利切断後の天国刈り取り術',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'otome5',
+    name: 'L戦国乙女5 業火を穿つ宿焔の双刃',
+    kana: 'えるせんごくおとめふぁいぶ',
+    maker: 'オリンピア',
+    type: 'スマスロ (AT)',
+    tags: ['人気シリーズ', '平和', 'スマスロ'],
+    ceilingSummary: '最大799G ＋ 前兆（リセ時 600G短縮）',
+    yameDokiSummary: 'AT後 乙女アタック・前兆否定でヤメ',
+    highlightSignal: '金スタンプ=設定4↑ / 虹スタンプ=設定6',
+    aimPoints: {
+      videoSummary: [
+        '【ゴエモン依頼ポイント】液晶右上の家紋エフェクト大出現時はポイントMAX（CZ突入）間近。',
+        '【朝イチ恩恵】設定変更時は天井が600Gに短縮＋モード優遇。'
+      ],
+      triggerSignals: [
+        'ゴエモン依頼ポイント「蓄積大」 ➔ CZ突入までツッパ',
+        'リセット台（朝イチ0G〜） ➔ 600G短縮天井狙い',
+        '巫女カウンタ減算狙い ➔ 規定pt到達まで'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、乙女アタック前兆否定（約30G）で即ヤメ',
+      stopNg: 'ゴエモンポイント大、金スタンプ以上出現台',
+      tip: '前兆ステージ（軍師ステージ等）抜けをしっかり見極める。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 AT終了画面 スタンプ（設定確定）',
+        items: [
+          { badge: '設定6確定', character: 'スタンプ', content: '極スタンプ（虹）出現', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'スタンプ', content: '優スタンプ（金）出現', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'スタンプ', content: '良スタンプ（銀）出現', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: '終了画面', content: 'モトチカ・ソウリン・モトナリ集合画面', meaning: '高設定示唆（強）', priority: 'warning' }
+        ]
+      },
+      {
+        categoryName: '🌸 ゴエモン依頼ポイント蓄積示唆',
+        items: [
+          { badge: 'CZ突入間近', character: 'エフェクト', content: '家紋エフェクト「大」が液晶上部に吸い込まれる', meaning: 'ゴエモン依頼ポイントMAX（CZ突入）間近！', priority: 'danger', action: 'CZ発動までツッパ' },
+          { badge: '蓄積示唆', character: 'エフェクト', content: '家紋エフェクト「中」出現', meaning: 'ポイント蓄積中', priority: 'normal' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'L戦国乙女5 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】リセット時・ゾーン狙い・短縮天井ボーダー',
+        'ゴエモンポイント狙い ＆ 有利切断恩恵マニュアル',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'monkey5',
+    name: 'スマスロ モンキーターンV',
+    kana: 'すますろもんきーたーんふぁいぶ',
+    maker: '山佐',
+    type: 'スマスロ (AT)',
+    tags: ['大人気', '山佐', 'スマスロ'],
+    ceilingSummary: '最大795G / 6周期（短縮時 495G/4周期）',
+    yameDokiSummary: 'ヘルメット確認後 即ヤメ',
+    highlightSignal: 'ロゴ+V=天国確定 / ロゴ+キラ=モードB↑',
+    aimPoints: {
+      videoSummary: [
+        '【ヘルメット第3停止の確認】AT終了画面で第3停止ボタンを押すとヘルメットロゴが出現。「ロゴ＋V」は天国（1周期）確定、「ロゴ＋キラキラ」はモードB以上濃厚。',
+        '【即優出の法則】AT終了後1G目に優出モード（前兆）へ突入した場合は本前兆期待度が激高。',
+        '【短縮天井】設定変更時や青島VS波多野敗北後は天井が495G（最大4周期）に短縮。'
+      ],
+      triggerSignals: [
+        'ヘルメット「ロゴ ＋ Ｖ」 ➔ 天国（1周期目）当選確定（即ツッパ）',
+        'ヘルメット「ロゴ ＋ キラキラ」 ➔ モードB以上濃厚（次回当選までツッパ）',
+        'AT終了後 1G目の即優出モード突入 ➔ 超激熱（ツッパ）',
+        'ライバルモード（蒲生・榎木・洞口）示唆 ➔ モードに応じた狙い目'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ヘルメットが「ロゴなし」または「通常ロゴ」で即優出なし ➔ 即ヤメ（0G）',
+      stopNg: 'ヘルメット「ロゴ＋V」「ロゴ＋キラキラ」や即優出が発生した台',
+      tip: '天国示唆がない場合は1周期目のゾーン追いは厳禁（期待値マイナス）。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 AT終了画面 ＆ トロフィー（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: 'トロフィー', content: '虹トロフィー出現', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'トロフィー', content: 'ケロット柄トロフィー出現', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'トロフィー / 終了画面', content: '金トロフィー / 青島＆波多野（私服画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: '終了画面', content: '青島（ドレス姿画面）', meaning: '高設定示唆（強）', priority: 'warning', action: '様子見' },
+          { badge: '偶数設定示唆', character: '終了画面', content: '波多野一家 / 女性キャラ集合画面', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '⛑️ ヘルメット示唆（モード＆天国判別）',
+        items: [
+          { badge: '天国確定', character: 'ヘルメット', content: 'ヘルメット「ロゴ ＋ Ｖ」', meaning: '天国（第1周期）当選確定！', priority: 'danger', action: '1周期目ツッパ' },
+          { badge: 'モードB以上濃厚', character: 'ヘルメット', content: 'ヘルメット「ロゴ ＋ キラキラエフェクト」', meaning: 'モードB以上濃厚！次回当選までツッパ！', priority: 'danger', action: '次回当選までツッパ' },
+          { badge: 'モード示唆なし', character: 'ヘルメット', content: 'ヘルメット「ロゴなし」または「通常ロゴ」', meaning: 'デフォルト示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🚤 ライバルモード示唆（特殊優遇）',
+        items: [
+          { badge: '青島優遇', character: 'ライバル', content: '青島優出・青島ヘルメット出現', meaning: '青島VS波多野（上位ST）突入期待度UP！', priority: 'warning' },
+          { badge: '榎木モード', character: 'ライバル', content: '榎木ヘルメット / 榎木優出', meaning: '優出モード突破期待度UP', priority: 'normal' },
+          { badge: '蒲生モード', character: 'ライバル', content: '蒲生ヘルメット / 蒲生優出', meaning: '超抜チャレンジ当選率UP', priority: 'normal' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'スマスロ モンキーターンV 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】リセット時・短縮時の思考停止ボーダー',
+        '青島優遇状態 ＆ 有利切断条件の完全解説',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
     id: 'seiya',
     name: 'L聖闘士星矢 海皇覚醒 CUSTOM EDITION',
     kana: 'えるせいんとせいやかいおうかくせい',
@@ -321,6 +554,13 @@ export const MACHINES_DATA: Machine[] = [
           { badge: '偶数設定示唆', character: 'シナリオ', content: '灰島重工シナリオ（黒野・優一郎等）', meaning: '偶数設定示唆', priority: 'normal' },
           { badge: '基本シナリオ', character: 'シナリオ', content: '第8特殊消防隊シナリオ', meaning: 'デフォルト示唆', priority: 'normal' }
         ]
+      },
+      {
+        categoryName: '🚨 アイキャッチ ＆ モード示唆',
+        items: [
+          { badge: '伝道者の罠高確', character: 'アイキャッチ', content: '伝道者アイキャッチ出現', meaning: '伝道者の罠高確率状態滞在濃厚！', priority: 'warning' },
+          { badge: '本前兆濃厚', character: 'アイキャッチ', content: '第8全員集合アイキャッチ', meaning: '初当りボーナス本前兆濃厚！', priority: 'danger', action: '当否までツッパ' }
+        ]
       }
     ],
     vipTeaser: {
@@ -378,6 +618,13 @@ export const MACHINES_DATA: Machine[] = [
           { badge: 'マガイマガド濃厚', character: 'エフェクト', content: '液晶に紫の炎が浮かび上がる演出', meaning: 'マガイマガドモード滞在の期待大！', priority: 'warning', action: '次回ボーナスまで' },
           { badge: '規定pt到達間近', character: '液晶役物', content: '風車が複数個回転する演出', meaning: '次回クエスト規定カムラpt到達が近い！', priority: 'normal' }
         ]
+      },
+      {
+        categoryName: '🐱 アイルーセリフ（リプレイ40回時）',
+        items: [
+          { badge: 'CZ本前兆濃厚', character: 'セリフ', content: 'アイルー「大チャンスニャ！」', meaning: 'アイルーだるま落としCZ本前兆濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '前兆示唆', character: 'セリフ', content: 'アイルー「何か気配がするニャ」', meaning: 'CZ前兆示唆', priority: 'normal' }
+        ]
       }
     ],
     vipTeaser: {
@@ -385,185 +632,6 @@ export const MACHINES_DATA: Machine[] = [
       points: [
         '【出玉率106%以上】クエストスルー回数・規定カムラpt思考停止ボーダー',
         '百竜夜行 ＆ 気焔万丈有利切断マニュアル',
-        'ノリ打ち共有用メモ ＆ 現場Q&A',
-        'Discordリアルタイム質問部屋'
-      ]
-    }
-  },
-  {
-    id: 'kaguya',
-    name: 'Lパチスロ かぐや様は告らせたい',
-    kana: 'えるぱちすろかぐやさまはこくらせたい',
-    maker: 'SANKYO',
-    type: 'スマスロ (AT)',
-    tags: ['高純増', 'SANKYO', 'スマスロ'],
-    ceilingSummary: '最大1100G（REG後900G）/ CZ最大7スルー',
-    yameDokiSummary: '130G引き戻し抜けヤメ',
-    highlightSignal: 'アイキャッチ赤=天井短縮 / 金枠=設定4↑',
-    aimPoints: {
-      videoSummary: [
-        '【REG後天井短縮】REG単発後は天井が液晶900G＋αに短縮。',
-        '【130G引き戻し仕様】ボーナス・EXTRA終了後は130G付近まで引き戻し高確率。特に「超BIGループ後」や「裏REG後」は引き戻し率が大幅UP。',
-        '【アイキャッチ赤の法則】ステージチェンジ時のアイキャッチが赤背景なら、規定チャンス目天井が大幅短縮濃厚。'
-      ],
-      triggerSignals: [
-        'アイキャッチ「赤背景」 ➔ 規定チャンス目短縮濃厚（次回CZまでツッパ）',
-        'REG後 ハマリ台 ➔ 900G短縮天井狙い',
-        'CZ 4スルー以上 ➔ スルー天井（最大7回）狙い'
-      ]
-    },
-    yameRules: {
-      stopOk: 'ボーナス後、130Gの引き戻し前兆（マリアージュ等）否定で即ヤメ',
-      stopNg: '超BIGループ後、裏REG後、アイキャッチ赤背景が出現した台',
-      tip: '超BIGループ後は引き戻し期待度が大幅UPするため130Gまで必ずフォロー。'
-    },
-    settingSignals: [
-      {
-        categoryName: '📸 ボーナス終了画面（設定示唆）',
-        items: [
-          { badge: '設定6確定', character: '終了画面', content: '虹枠画面（かぐや＆白銀ウェディング）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: '赤枠画面（生徒会メンバー集合）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: '金枠画面（かぐや＆藤原）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '高設定示唆 [強]', character: '終了画面', content: '藤原千花（水着 / パジャマ）', meaning: '高設定示唆（強）', priority: 'warning' },
-          { badge: '偶数設定示唆', character: '終了画面', content: '早坂愛（私服画面）', meaning: '偶数設定示唆', priority: 'normal' }
-        ]
-      },
-      {
-        categoryName: '🎨 アイキャッチ ＆ 時計示唆（モード・規定数）',
-        items: [
-          { badge: '天国濃厚', character: 'アイキャッチ', content: 'ステージチェンジ時「紫背景アイキャッチ」', meaning: '天国モード（130G以内当選）濃厚！', priority: 'danger', action: '当否までツッパ' },
-          { badge: '規定数大幅短縮', character: 'アイキャッチ', content: 'ステージチェンジ時「赤背景アイキャッチ」', meaning: '規定チャンス目天井が大幅短縮濃厚！', priority: 'warning', action: '次回CZまでツッパ' },
-          { badge: 'チャンス目近し', character: '時計', content: '時計演出で長針・短針が「夜」を指す', meaning: '規定チャンス目回数到達が近い！', priority: 'normal' }
-        ]
-      }
-    ],
-    vipTeaser: {
-      title: 'Lかぐや様は告らせたい 完全攻略（VIP限定）',
-      points: [
-        '【出玉率106%以上】CZスルー回数・リセット短縮時の思考停止ボーダー',
-        '裏REG後・超BIGループ後の引き戻し刈り取り術',
-        'ノリ打ち共有用メモ ＆ 現場Q&A',
-        'Discordリアルタイム質問部屋'
-      ]
-    }
-  },
-  {
-    id: 'karakuri',
-    name: 'Lパチスロ からくりサーカス',
-    kana: 'えるぱちすろからくりさーかす',
-    maker: 'SANKYO',
-    type: 'スマスロ (AT)',
-    tags: ['万枚特化', 'SANKYO', 'スマスロ'],
-    ceilingSummary: '最大1200G / CZ最大4スルー',
-    yameDokiSummary: '天国前兆（100G）否定でヤメ',
-    highlightSignal: 'CZ終了画面 銀/金=天国 / 3スルー=ツッパ',
-    aimPoints: {
-      videoSummary: [
-        '【CZ終了画面の枠色】CZ失敗画面で銀枠は次回天国濃厚、金枠は次回天国＋高設定濃厚。',
-        '【フェイスレスPUSH】メニュー画面や通常時のPUSHで紫セリフが出たら次回CZ成功でAT直撃濃厚。',
-        '【CZスルー天井】最大4スルー（5回目のCZ）でAT直撃確定。3スルー以上はツッパ推奨。'
-      ],
-      triggerSignals: [
-        'CZ終了画面「勝＆鳴海（銀枠 / 金枠）」 ➔ 次回天国濃厚（ツッパ）',
-        'フェイスレスPUSH示唆（紫） ➔ 次回CZ成功でAT直撃濃厚（ツッパ）',
-        'CZ 3スルー・4スルー台 ➔ AT直撃までツッパ'
-      ]
-    },
-    yameRules: {
-      stopOk: 'CZ失敗時・AT終了後、液晶100G前兆否定でヤメ（差枚マイナス時）',
-      stopNg: 'CZ 3スルー以上の台、銀枠・金枠画面が出現した台',
-      tip: 'CZスルー回数はデータ機ではなく液晶メニュー画面で必ず確認。'
-    },
-    settingSignals: [
-      {
-        categoryName: '🎭 CZ・AT終了画面（設定＆モード示唆）',
-        items: [
-          { badge: '設定6確定', character: '終了画面', content: '劇団全員集合（虹枠画面）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: 'フランシーヌ（赤枠画面）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: 'しろがね＆あるるかん（金枠画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '天国濃厚＋高設定', character: 'CZ終了画面', content: '勝＆鳴海（金枠画面）', meaning: '次回天国濃厚＋高設定期待度大！', priority: 'danger', action: '次回当選までツッパ' },
-          { badge: '天国濃厚', character: 'CZ終了画面', content: '勝＆鳴海（銀枠画面）', meaning: '次回天国モード濃厚！', priority: 'danger', action: '次回当選までツッパ' }
-        ]
-      },
-      {
-        categoryName: '🗣️ フェイスレスPUSH ＆ 幕引き示唆',
-        items: [
-          { badge: 'AT直撃濃厚', character: 'PUSHボイス', content: 'フェイスレスPUSH示唆（紫文字セリフ）', meaning: '次回CZ成功でAT直撃濃厚！', priority: 'danger', action: '次回CZまでツッパ' },
-          { badge: '高設定示唆 [強]', character: 'セリフ', content: '「悪魔め…」「笑顔のために…」', meaning: '高設定示唆（強）', priority: 'warning' }
-        ]
-      }
-    ],
-    vipTeaser: {
-      title: 'Lからくりサーカス 完全攻略（VIP限定）',
-      points: [
-        '【出玉率106%以上】CZスルー回数別（3スルー〜0Gツッパ）ボーダー',
-        '運命の一劇失敗後・有利切断後の天国刈り取り術',
-        'ノリ打ち共有用メモ ＆ 現場Q&A',
-        'Discordリアルタイム質問部屋'
-      ]
-    }
-  },
-  {
-    id: 'monkey5',
-    name: 'スマスロ モンキーターンV',
-    kana: 'すますろもんきーたーんふぁいぶ',
-    maker: '山佐',
-    type: 'スマスロ (AT)',
-    tags: ['大人気', '山佐', 'スマスロ'],
-    ceilingSummary: '最大795G / 6周期（短縮時 495G/4周期）',
-    yameDokiSummary: 'ヘルメット確認後 即ヤメ',
-    highlightSignal: 'ロゴ+V=天国確定 / ロゴ+キラ=モードB↑',
-    aimPoints: {
-      videoSummary: [
-        '【ヘルメット第3停止の確認】AT終了画面で第3停止ボタンを押すとヘルメットロゴが出現。「ロゴ＋V」は天国（1周期）確定、「ロゴ＋キラキラ」はモードB以上濃厚。',
-        '【即優出の法則】AT終了後1G目に優出モード（前兆）へ突入した場合は本前兆期待度が激高。',
-        '【短縮天井】設定変更時や青島VS波多野敗北後は天井が495G（最大4周期）に短縮。'
-      ],
-      triggerSignals: [
-        'ヘルメット「ロゴ ＋ Ｖ」 ➔ 天国（1周期目）当選確定（即ツッパ）',
-        'ヘルメット「ロゴ ＋ キラキラ」 ➔ モードB以上濃厚（次回当選までツッパ）',
-        'AT終了後 1G目の即優出モード突入 ➔ 超激熱（ツッパ）',
-        'ライバルモード（蒲生・榎木・洞口）示唆 ➔ モードに応じた狙い目'
-      ]
-    },
-    yameRules: {
-      stopOk: 'ヘルメットが「ロゴなし」または「通常ロゴ」で即優出なし ➔ 即ヤメ（0G）',
-      stopNg: 'ヘルメット「ロゴ＋V」「ロゴ＋キラキラ」や即優出が発生した台',
-      tip: '天国示唆がない場合は1周期目のゾーン追いは厳禁（期待値マイナス）。'
-    },
-    settingSignals: [
-      {
-        categoryName: '🏆 AT終了画面 ＆ トロフィー（設定示唆）',
-        items: [
-          { badge: '設定6確定', character: 'トロフィー', content: '虹トロフィー出現', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: 'トロフィー', content: 'ケロット柄トロフィー出現', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: 'トロフィー / 終了画面', content: '金トロフィー / 青島＆波多野（私服画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '高設定示唆 [強]', character: '終了画面', content: '青島（ドレス姿画面）', meaning: '高設定示唆（強）', priority: 'warning', action: '様子見' },
-          { badge: '偶数設定示唆', character: '終了画面', content: '波多野一家 / 女性キャラ集合画面', meaning: '偶数設定示唆', priority: 'normal' }
-        ]
-      },
-      {
-        categoryName: '⛑️ ヘルメット示唆（モード＆天国判別）',
-        items: [
-          { badge: '天国確定', character: 'ヘルメット', content: 'ヘルメット「ロゴ ＋ Ｖ」', meaning: '天国（第1周期）当選確定！', priority: 'danger', action: '1周期目ツッパ' },
-          { badge: 'モードB以上濃厚', character: 'ヘルメット', content: 'ヘルメット「ロゴ ＋ キラキラエフェクト」', meaning: 'モードB以上濃厚！次回当選までツッパ！', priority: 'danger', action: '次回当選までツッパ' },
-          { badge: 'モード示唆なし', character: 'ヘルメット', content: 'ヘルメット「ロゴなし」または「通常ロゴ」', meaning: 'デフォルト示唆', priority: 'normal' }
-        ]
-      },
-      {
-        categoryName: '🚤 ライバルモード示唆（特殊優遇）',
-        items: [
-          { badge: '青島優遇', character: 'ライバル', content: '青島優出・青島ヘルメット出現', meaning: '青島VS波多野（上位ST）突入期待度UP！', priority: 'warning' },
-          { badge: '榎木モード', character: 'ライバル', content: '榎木ヘルメット / 榎木優出', meaning: '優出モード突破期待度UP', priority: 'normal' },
-          { badge: '蒲生モード', character: 'ライバル', content: '蒲生ヘルメット / 蒲生優出', meaning: '超抜チャレンジ当選率UP', priority: 'normal' }
-        ]
-      }
-    ],
-    vipTeaser: {
-      title: 'スマスロ モンキーターンV 完全攻略（VIP限定）',
-      points: [
-        '【出玉率106%以上】リセット時・短縮時の思考停止ボーダー',
-        '青島優遇状態 ＆ 有利切断条件の完全解説',
         'ノリ打ち共有用メモ ＆ 現場Q&A',
         'Discordリアルタイム質問部屋'
       ]
@@ -603,15 +671,24 @@ export const MACHINES_DATA: Machine[] = [
           { badge: '設定5以上確定', character: 'エリナ', content: '「私、大きくなったら…」', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定4以上濃厚', character: 'レン', content: '「あなたはそのアラガミを…」', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
           { badge: '偶数示唆 [強]', character: 'サクヤ', content: '「私は、私のやるべきことを…」', meaning: '偶数設定示唆（強）', priority: 'warning' },
-          { badge: '高設定示唆', character: 'ソーマ', content: '「思い出ってのは、悪いことばかりでも…」', meaning: '高設定示唆', priority: 'normal' }
+          { badge: '高設定示唆', character: 'ソーマ', content: '「思い出ってのは、悪いことばかりでも…」', meaning: '高設定示唆', priority: 'normal' },
+          { badge: 'デフォルト', character: 'ユウ / コウタ', content: '「いくぞ！」「まかせてよ！」', meaning: '奇数 / 偶数デフォルト', priority: 'normal' }
         ]
       },
       {
-        categoryName: '🏆 AT終了画面（設定示唆）',
+        categoryName: '🏆 AT終了画面 ＆ トロフィー（設定確定）',
         items: [
-          { badge: '設定6確定', character: '終了画面', content: '全員集合（赤背景）/ こたつ画面', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: 'シオ（単独画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定6確定', character: '終了画面 / トロフィー', content: 'こたつ画面 / 全員集合（赤背景）/ 虹トロフィー', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'トロフィー', content: 'ケロット柄トロフィー', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面 / トロフィー', content: 'シオ（単独画面）/ 金トロフィー', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定3以上確定', character: '終了画面', content: 'リンドウ（単独画面）', meaning: '設定3以上確定！', priority: 'danger', action: 'ツッパ視野' }
+        ]
+      },
+      {
+        categoryName: '💬 通常時 高確・前兆示唆セリフ',
+        items: [
+          { badge: '本前兆濃厚', character: 'セリフ', content: '液晶セリフ演出「赤文字」発生', meaning: 'ボーナス本前兆濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '高確滞在濃厚', character: 'セリフ', content: 'ハズレ・リプレイ時に「その調子です！」', meaning: '内部高確濃厚！', priority: 'normal' }
         ]
       }
     ],
@@ -654,11 +731,25 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🏆 ST終了画面 スタンプ（設定確定）',
         items: [
-          { badge: '設定6確定', character: 'スタンプ', content: '極スタンプ（虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: 'スタンプ', content: '優スタンプ（金）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: 'スタンプ', content: '良スタンプ（銀）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定3以上確定', character: 'スタンプ', content: '吉スタンプ（銅）', meaning: '設定3以上確定', priority: 'warning' },
-          { badge: '設定5期待度UP', character: '終了画面', content: 'メア（単独画面）', meaning: '設定5期待度大幅UP！', priority: 'warning', action: '様子見' }
+          { badge: '設定6確定', character: 'スタンプ', content: '極スタンプ（虹）出現', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'スタンプ', content: '優スタンプ（金）出現', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'スタンプ', content: '良スタンプ（銀）出現', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定3以上確定', character: 'スタンプ', content: '吉スタンプ（銅）出現', meaning: '設定3以上確定', priority: 'warning' },
+          { badge: '設定5期待度UP', character: '終了画面', content: 'メア（単独画面）', meaning: '設定5期待度大幅UP！', priority: 'warning', action: '様子見' },
+          { badge: '偶数設定示唆', character: '終了画面', content: 'ヤミ＆芽亜（水着画面）', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🎨 アイキャッチ ＆ モード示唆',
+        items: [
+          { badge: '次回当選濃厚', character: 'アイキャッチ', content: 'ステージチェンジ「金背景アイキャッチ」', meaning: '次回CZ/ボーナス当選濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '規定pt短縮濃厚', character: 'アイキャッチ', content: 'ステージチェンジ「赤背景アイキャッチ」', meaning: '規定ポイント天井短縮濃厚！', priority: 'warning', action: '次回CZまで' }
+        ]
+      },
+      {
+        categoryName: '💖 どきどきポイント蓄積示唆',
+        items: [
+          { badge: '愛すラッシュ間近', character: 'エフェクト', content: 'どきどきポイント「蓄積エフェクト大」', meaning: 'どきどきポイントMAX（上位特化恩恵）間近！', priority: 'danger', action: '解放までツッパ' }
         ]
       }
     ],
@@ -702,9 +793,18 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🤖 ボーナス・AT終了画面（設定示唆）',
         items: [
-          { badge: '設定6確定', character: '終了画面', content: 'パイロット全員集合（虹枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: 'ハルト＆エルエルフ（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: '紫枠 / 金枠画面', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定6確定', character: '終了画面', content: 'パイロット全員集合（虹枠画面）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: 'ハルト＆エルエルフ（赤枠画面）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: 'アキラ＆サキ＆ショーコ（金枠画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数設定示唆', character: '終了画面', content: '女性キャラ集合画面（紫枠）', meaning: '偶数設定示唆', priority: 'normal' },
+          { badge: 'デフォルト', character: '終了画面', content: 'ハルト単独 / エルエルフ単独（白枠）', meaning: 'デフォルト示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '⚡ 革命分岐 ＆ マリエ覚醒示唆',
+        items: [
+          { badge: 'マリエ覚醒濃厚', character: 'セリフ', content: '通常時 マリエの赤セリフ頻発', meaning: '次回革命ボーナス時マリエ覚醒（AT直撃）濃厚！', priority: 'danger', action: 'ボーナスまでツッパ' },
+          { badge: '超革命優遇', character: '履歴', content: '決戦ボーナス 3連続以上スルー', meaning: '次回ボーナスが「革命ボーナス」に超優遇！', priority: 'warning', action: 'ツッパ' }
         ]
       }
     ],
@@ -748,9 +848,24 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🌺 ボーナス終了時ボイス ＆ 告知ランプ（設定示唆）',
         items: [
-          { badge: '設定6確定', character: 'ボイス', content: 'アンちゃん「具志堅用高です！」/ 虹ランプ', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: 'ボイス', content: '「めんそーれ！（プレミアムボイス）」', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: 'ボイス', content: '「はいさい！（特殊ボイス）」', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定6確定', character: 'ボイス', content: 'アンちゃん「具志堅用高です！」/ 虹ランプ点灯', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'ボイス', content: 'アンちゃん「めんそーれ！（プレミアムボイス）」', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'ボイス', content: 'アンちゃん「はいさい！（特殊ボイス）」', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      },
+      {
+        categoryName: '🌺 ハイビスカス点滅パターン（モード示唆）',
+        items: [
+          { badge: '天国確定', character: 'ランプ', content: 'ハイビスカス「右のみ点滅」', meaning: '次回天国モード以上濃厚！', priority: 'danger', action: '32Gまでツッパ' },
+          { badge: '超天国確定', character: 'ランプ', content: 'ハイビスカス「高速点滅 / スロー点滅」', meaning: '次回超天国以上濃厚！', priority: 'danger', action: '32Gまでツッパ' },
+          { badge: '通常B以上濃厚', character: 'ランプ', content: 'ハイビスカス「同時点滅」', meaning: '通常Bモード以上濃厚！', priority: 'warning', action: '天国までツッパ視野' }
+        ]
+      },
+      {
+        categoryName: '🍒 チェリー停止形 示唆',
+        items: [
+          { badge: '通常B以上濃厚', character: '小役', content: '単チェリー（中段BAR停止）出現', meaning: '通常B以上濃厚！次回天国移行率UP！', priority: 'warning', action: 'ツッパ視野' },
+          { badge: '本前兆濃厚', character: '小役', content: 'チェリー頻発（チェリー前兆）', meaning: 'ボーナス本前兆濃厚！', priority: 'danger', action: '当否まで' }
         ]
       }
     ],
@@ -793,12 +908,27 @@ export const MACHINES_DATA: Machine[] = [
     },
     settingSignals: [
       {
-        categoryName: '🏆 ST終了画面 ＆ ボーナス中ボイス（設定示唆）',
+        categoryName: '🏆 ST終了画面 ＆ サミートロフィー（設定示唆）',
         items: [
-          { badge: '設定6確定', character: '終了画面', content: '生駒＆無名（虹枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: '美馬＆無名（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: '菖蒲（金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '高設定示唆 [強]', character: 'ボイス', content: '景之（かげゆき）ボイス発生', meaning: '高設定示唆（強・合算10〜17%）', priority: 'warning' }
+          { badge: '設定6確定', character: '終了画面 / トロフィー', content: '生駒＆無名（虹枠画面）/ 虹トロフィー', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面 / トロフィー', content: '美馬＆無名（赤枠画面）/ キリン柄トロフィー', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面 / トロフィー', content: '菖蒲（金枠画面）/ 金トロフィー', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: '終了画面', content: '無名（夕方画面）', meaning: '高設定示唆（強）', priority: 'warning' }
+        ]
+      },
+      {
+        categoryName: '🗣️ ボーナス中 逆押し成功時ボイス（設定示唆）',
+        items: [
+          { badge: '高設定示唆 [強]', character: 'ボイス', content: '景之（かげゆき）ボイス発生', meaning: '高設定示唆（強・合算10〜17%）', priority: 'warning', action: '様子見' },
+          { badge: '奇数設定示唆', character: 'ボイス', content: '男性キャラボイス（生駒・逞生等）', meaning: '奇数設定示唆', priority: 'normal' },
+          { badge: '偶数設定示唆', character: 'ボイス', content: '女性キャラボイス（無名・菖蒲等）', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '💨 黒煙ポイント（裏美馬ST示唆）',
+        items: [
+          { badge: '裏美馬解放濃厚', character: '黒煙', content: '黒煙エフェクト「大（画面全体を覆う）」', meaning: '黒煙MAX！次回初当りで裏美馬ST濃厚！', priority: 'danger', action: '次回初当りまでツッパ' },
+          { badge: '黒煙蓄積大', character: '黒煙', content: '黒煙エフェクト「中」', meaning: '黒煙ポイント大幅蓄積！', priority: 'warning', action: '解放までツッパ視野' }
         ]
       }
     ],
@@ -847,6 +977,13 @@ export const MACHINES_DATA: Machine[] = [
           { badge: '設定4以上確定', character: 'トロフィー', content: '金トロフィー出現', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '高確C以上濃厚', character: 'ボーナス終了画面', content: '覚醒鬼武者画面', meaning: 'リーチ目高確C以上滞在濃厚！', priority: 'warning' }
         ]
+      },
+      {
+        categoryName: '👹 鬼カウンター ＆ 襖セリフ示唆',
+        items: [
+          { badge: '本前兆濃厚', character: 'セリフ', content: '襖ウィンドウ「赤セリフ」出現', meaning: '周期到達時のボーナス本前兆濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '鬼カウンター赤変化', character: '演出', content: '鬼カウンターが赤く発光', meaning: '周期突破率大幅アップ！', priority: 'warning' }
+        ]
       }
     ],
     vipTeaser: {
@@ -889,9 +1026,18 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🏆 ボーナス・AT終了画面（設定示唆）',
         items: [
-          { badge: '設定6確定', character: '終了画面', content: '渚カヲル（単独・虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: 'シンジ＆カヲル（赤）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: 'マリ＆アスカ（金）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定6確定', character: '終了画面', content: '渚カヲル（単独・虹画面）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: 'シンジ＆カヲル（赤画面）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: 'マリ＆アスカ（金画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: '終了画面', content: '碇ゲンドウ＆冬月画面', meaning: '高設定示唆（強）', priority: 'warning' },
+          { badge: '偶数設定示唆', character: '終了画面', content: '綾波レイ（プラグスーツ画面）', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '👁️ 使徒バトル終了時 アイキャッチ（モード示唆）',
+        items: [
+          { badge: '次回CZ濃厚', character: 'アイキャッチ', content: '使徒バトル終了時「赤背景アイキャッチ」', meaning: '次回CZ当選濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '高確示唆', character: 'アイキャッチ', content: '使徒バトル終了時「紫背景アイキャッチ」', meaning: '高確滞在示唆', priority: 'normal' }
         ]
       }
     ],
@@ -935,9 +1081,17 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🏆 AT終了画面 ＆ 藤丸コイン（設定示唆）',
         items: [
-          { badge: '設定6確定', character: '終了画面 / コイン', content: '当麻＆インデックス（虹）/ 虹コイン', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定6確定', character: '終了画面 / コイン', content: '当麻＆インデックス（虹）/ 虹コイン出現', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定5以上確定', character: '終了画面', content: '御坂美琴＆食蜂操祈（赤）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面 / コイン', content: '麦野沈利（金）/ 金コイン', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定4以上確定', character: '終了画面 / コイン', content: '麦野沈利（金）/ 金コイン出現', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数設定示唆', character: '終了画面', content: 'ヒロイン全員集合画面', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '⚡ 異能キャラ ＆ アイキャッチ示唆',
+        items: [
+          { badge: 'CZ本前兆濃厚', character: 'アイキャッチ', content: 'ステージチェンジ「赤枠アイキャッチ」', meaning: 'CZ本前兆濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '一方通行獲得', character: '異能キャラ', content: '液晶左下「一方通行（アクセラレータ）」獲得', meaning: 'CZ突破期待度激高！', priority: 'warning', action: 'CZ突入までツッパ' }
         ]
       }
     ],
@@ -981,9 +1135,17 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🏆 AT終了画面 スタンプ（設定確定）',
         items: [
-          { badge: '設定6確定', character: '終了画面 / スタンプ', content: '銭形＆ルパン（金枠）/ 極スタンプ', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面 / スタンプ', content: 'ルパン一味（赤枠）/ 優スタンプ', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面 / スタンプ', content: '峰不二子（金枠）/ 良スタンプ', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定6確定', character: '終了画面 / スタンプ', content: '銭形＆ルパン（金枠）/ 極スタンプ（虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面 / スタンプ', content: 'ルパン一味集合（赤枠）/ 優スタンプ（金）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面 / スタンプ', content: '峰不二子（金枠）/ 良スタンプ（銀）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数設定示唆', character: '終了画面', content: '次元＆五ェ門画面', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '💜 執念ポイント蓄積示唆',
+        items: [
+          { badge: '執念MAX濃厚', character: 'エフェクト', content: '液晶に「紫エフェクト大」が吸い込まれる', meaning: '執念ポイント100pt到達！次回BIG確定！', priority: 'danger', action: 'AT当選までツッパ' },
+          { badge: '執念蓄積大', character: 'エフェクト', content: '液晶に「紫エフェクト中」出現', meaning: '執念ポイント蓄積大！', priority: 'warning', action: '解放までツッパ視野' }
         ]
       }
     ],
@@ -1027,7 +1189,15 @@ export const MACHINES_DATA: Machine[] = [
         categoryName: '🌺 ボーナス終了時ボイス ＆ 告知ランプ（設定示唆）',
         items: [
           { badge: '設定6確定', character: '告知ランプ', content: '虹蝶ランプ点灯', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: 'ボイス', content: 'プリメロ「ちゅらさん！（特殊ボイス）」', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定4以上確定', character: 'ボイス', content: 'プリメロ「ちゅらさん！（特殊ボイス）」', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数設定示唆', character: 'ボイス', content: '「ハイサイ！」ボイス発生', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🦋 飛翔モード ＆ 遅れ示唆',
+        items: [
+          { badge: '飛翔モード濃厚', character: '告知演出', content: 'バタフライランプ「赤発光 / 特殊点滅」', meaning: '超飛翔モード移行濃厚！', priority: 'danger', action: '連チャン終了まで' },
+          { badge: 'ボーナス濃厚', character: '演出', content: 'レバーオン時「遅れ発生」＋チェリー否定', meaning: 'ボーナス本前兆濃厚！', priority: 'danger', action: '即ボーナス' }
         ]
       }
     ],
@@ -1073,7 +1243,15 @@ export const MACHINES_DATA: Machine[] = [
         items: [
           { badge: '設定6確定', character: '終了画面', content: 'キリト＆アスナ（ウェディング・金枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定5以上確定', character: '終了画面', content: 'シノン＆リーファ（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: 'アリス＆ユージオ（金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定4以上確定', character: '終了画面', content: 'アリス＆ユージオ（金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数設定示唆', character: '終了画面', content: 'ヒロイン水着集合画面', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '⚔️ おうちモード ＆ ボスバトル示唆',
+        items: [
+          { badge: 'CZ本前兆濃厚', character: 'ステージ', content: '「おうちモード」移行', meaning: 'CZ本前兆濃厚！', priority: 'danger', action: 'CZ突入まで' },
+          { badge: '高確滞在濃厚', character: 'ミニキャラ', content: 'アスナ「頑張ってね」セリフ発生', meaning: '内部高確濃厚！', priority: 'normal' }
         ]
       }
     ],
@@ -1117,9 +1295,17 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🏆 AT終了画面 ＆ コナミコマンド（設定示唆）',
         items: [
-          { badge: '設定6確定', character: '終了画面', content: '信長＆秀吉（虹枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: '家康＆三成（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: '信長（単独・金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+          { badge: '設定6確定', character: '終了画面', content: '信長＆秀吉（虹枠画面）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: '家康＆三成（赤枠画面）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: '織田信長（単独・金枠画面）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '偶数設定示唆', character: '終了画面', content: '女性武将集合画面', meaning: '偶数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🏯 ステージ背景 ＆ 修羅モード示唆',
+        items: [
+          { badge: '天国・モードB濃厚', character: 'ステージ', content: 'ステージ背景「赤色エフェクト」', meaning: '天国またはモードB滞在濃厚！', priority: 'danger', action: '当否までツッパ' },
+          { badge: '本前兆濃厚', character: '演出', content: '修羅モード中の「赤文字タイトル」', meaning: 'AT本前兆濃厚！', priority: 'danger', action: 'ツッパ' }
         ]
       }
     ],
@@ -1160,12 +1346,20 @@ export const MACHINES_DATA: Machine[] = [
     },
     settingSignals: [
       {
-        categoryName: '🗣️ ボイス ＆ トロフィー（設定示唆）',
+        categoryName: '🗣️ ドライブチャンス終了時 PUSHボイス（設定示唆）',
         items: [
-          { badge: '設定6確定', character: 'トロフィー', content: '虹トロフィー', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: 'トロフィー', content: 'もみじ柄トロフィー', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定4以上濃厚', character: 'ボイス', content: '「456（フォー・ファイブ・シックス）」', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '高設定示唆', character: 'ボイス', content: '「It’s so cool」', meaning: '高設定示唆', priority: 'warning' }
+          { badge: '高設定示唆 [強]', character: 'ボイス', content: '「It’s so cool」', meaning: '高設定示唆（強）', priority: 'warning', action: '様子見' },
+          { badge: '偶数設定示唆', character: 'ボイス', content: '「Put your hands up」', meaning: '偶数設定示唆', priority: 'normal' },
+          { badge: '奇数設定示唆', character: 'ボイス', content: '「check it out」', meaning: '奇数設定示唆', priority: 'normal' }
+        ]
+      },
+      {
+        categoryName: '🏆 エンタトロフィー（設定確定）',
+        items: [
+          { badge: '設定6確定', character: 'トロフィー', content: '虹トロフィー出現', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'トロフィー', content: 'もみじ柄トロフィー出現', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'トロフィー', content: '金トロフィー出現', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
         ]
       }
     ],
@@ -1209,8 +1403,16 @@ export const MACHINES_DATA: Machine[] = [
       {
         categoryName: '🌺 1日1回CHANCEボイス ＆ ランプ（設定示唆）',
         items: [
-          { badge: '設定6確定', character: 'ボイス', content: '1日1回特殊プレミアムボイス（虹ランプ）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定6確定', character: 'ボイス', content: '1日1回特殊プレミアムボイス（虹ランプ点灯）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '高設定示唆', character: 'ボイス', content: 'リール停止時 違和感ボイス発生', meaning: '高設定示唆', priority: 'warning' }
+        ]
+      },
+      {
+        categoryName: '🍒 チェリー停止形 示唆（虹7・前兆）',
+        items: [
+          { badge: '虹7ボーナス濃厚', character: 'チェリー', content: '3リール大滑りチェリー出現', meaning: '最上位「虹7ボーナス」濃厚！', priority: 'danger', action: '即ツッパ' },
+          { badge: 'BIG以上濃厚', character: 'チェリー', content: '2リール大滑りチェリー出現', meaning: 'BIGまたは虹7ボーナス濃厚！', priority: 'danger', action: 'ツッパ' },
+          { badge: '本前兆濃厚', character: 'チェリー', content: '単チェリー出現', meaning: 'ボーナス前兆またはストック保持濃厚！', priority: 'warning', action: '当否まで' }
         ]
       }
     ],
