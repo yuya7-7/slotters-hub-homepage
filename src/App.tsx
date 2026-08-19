@@ -25,13 +25,18 @@ function App() {
 
   return (
     <div className="app">
-      {/* Minimal Header */}
+      {/* Header */}
       <header className="header">
         <div className="container header-inner">
           <div className="logo-group">
             <div className="logo-text">Slotter's Hub</div>
             <span className="logo-badge">広告ゼロ</span>
           </div>
+          <nav className="nav-links">
+            <a href="#machines" className="nav-link">機種一覧</a>
+            <a href="#features" className="nav-link">コミュニティ特徴</a>
+            <a href="#plans" className="nav-link">VIPプラン</a>
+          </nav>
           <a href="#plans" className="btn btn-primary header-cta">
             🔒 VIPプラン (月額¥500)
           </a>
@@ -40,6 +45,7 @@ function App() {
 
       {/* Main Content Area */}
       <main className="main-content container">
+        {/* Search Bar */}
         <div className="search-wrapper">
           <SearchBar
             searchTerm={searchTerm}
@@ -47,51 +53,111 @@ function App() {
           />
         </div>
 
-        {/* Machine Cards */}
-        {filteredMachines.length > 0 ? (
-          <div className="machines-grid">
-            {filteredMachines.map((machine) => (
-              <MachineCard
-                key={machine.id}
-                machine={machine}
-                onSelect={(m) => setSelectedMachine(m)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="no-results card">
-            <p>「{searchTerm}」に一致する機種が見つかりませんでした。</p>
-            <button
-              className="btn btn-primary"
-              style={{ marginTop: '10px' }}
-              onClick={() => setSearchTerm('')}
-            >
-              検索をリセット
-            </button>
-          </div>
-        )}
+        {/* Machine Cards Directory */}
+        <section id="machines" className="machines-section">
+          {filteredMachines.length > 0 ? (
+            <div className="machines-grid">
+              {filteredMachines.map((machine) => (
+                <MachineCard
+                  key={machine.id}
+                  machine={machine}
+                  onSelect={(m) => setSelectedMachine(m)}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="no-results card">
+              <p>「{searchTerm}」に一致する機種が見つかりませんでした。</p>
+              <button
+                className="btn btn-primary"
+                style={{ marginTop: '10px' }}
+                onClick={() => setSearchTerm('')}
+              >
+                検索をリセット
+              </button>
+            </div>
+          )}
+        </section>
 
-        {/* Compact VIP Banner at Bottom */}
-        <section id="plans" className="vip-bottom-banner">
-          <div className="vip-banner-content">
-            <div className="vip-badge-sm">🔒 クローズドコミュニティ</div>
-            <h3 className="vip-banner-title">
-              差枚優遇ボーダー ＆ 稼働SOSはVIP限定
-            </h3>
-            <p className="vip-banner-desc">
-              出玉率106%以上の思考停止ボーダー・15G天国刈り・Discord即レス相談部屋が使い放題。
+        {/* Community 4 Features Section (4大カード) */}
+        <section id="features" className="features-section">
+          <div className="section-title-wrap">
+            <h2 className="section-title">
+              <span>Slotter's Hub（VIPコミュニティ）の特徴</span>
+            </h2>
+            <p className="section-subtitle">
+              無料の示唆まとめに加え、プロ基準の期待値ボーダーと稼働中サポートを完備。
             </p>
           </div>
-          <div className="vip-banner-action">
-            <div className="vip-price-tag">月額 <strong>¥500</strong></div>
-            <a
-              href="https://mosh.jp"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-cta"
-            >
-              VIPに参加する →
-            </a>
+          <div className="features-grid">
+            <div className="card feature-card">
+              <div className="feature-icon">🔒</div>
+              <h3>106%思考停止ボーダー</h3>
+              <p>
+                スロラボ等の大量実戦値をベースに、差枚優遇・冷遇・リセット短縮を網羅した迷わないプロ基準の立ち回りを提供。
+              </p>
+            </div>
+            <div className="card feature-card">
+              <div className="feature-icon">🚨</div>
+              <h3>稼働中SOS・即レス相談部屋</h3>
+              <p>
+                「今この終了画面が出たけどツッパ？」「この差枚で打てる？」など、ホールからのリアルタイムな質問に即回答。
+              </p>
+            </div>
+            <div className="card feature-card">
+              <div className="feature-icon">🤝</div>
+              <h3>ノリ打ち・パートナー募集</h3>
+              <p>
+                特日や設定狙いの日に軍資金・リスクを分散するノリ打ち仲間募集フォーラムを完備。
+              </p>
+            </div>
+            <div className="card feature-card">
+              <div className="feature-icon">📱</div>
+              <h3>ノリ打ち共有メモ＆現場Q&A</h3>
+              <p>
+                LINEやDiscordでそのままパートナーにコピペして指示出しできる共有メモと、現場の疑問に即答するケーススタディ集。
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* VIP Pricing Section */}
+        <section id="plans" className="plans-section">
+          <div className="section-title-wrap">
+            <h2 className="section-title">
+              <span>VIPメンバーシップ参加プラン</span>
+            </h2>
+            <p className="section-subtitle">
+              すべての攻略ノート（全25機種以上）・差枚優遇ボーダー・SOS相談部屋が月額500円で使い放題。
+            </p>
+          </div>
+          <div className="plans-grid" style={{ maxWidth: '480px', margin: '0 auto' }}>
+            <div className="card plan-card featured-plan">
+              <div className="plan-badge">人気No.1・現場特化型</div>
+              <h3 className="plan-name">Slotter's Hub VIP会員</h3>
+              <div className="plan-price">
+                <span className="currency">¥</span>500
+                <span className="period"> / 月</span>
+              </div>
+              <ul className="plan-benefits">
+                <li>🔥 全25機種以上の完全攻略ノート（106%思考停止ボーダー）</li>
+                <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル見放題</li>
+                <li>🚨 ホール稼働中SOS・即レス相談部屋（Discord）利用権</li>
+                <li>📱 ノリ打ち・パートナー共有用コピペメモ利用</li>
+                <li>🤝 ノリ打ち仲間募集・ホール状況共有フォーラムの参加権</li>
+              </ul>
+              <a
+                href="https://mosh.jp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-cta plan-btn"
+              >
+                VIPに参加してプロボーダーを見る →
+              </a>
+              <div className="plan-footer-note">
+                ※ いつでもワンクリックで解約可能です。安心してお試しください。
+              </div>
+            </div>
           </div>
         </section>
       </main>
