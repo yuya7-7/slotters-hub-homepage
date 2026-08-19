@@ -8,8 +8,23 @@ interface MachineModalProps {
 
 export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
   const [activeTab, setActiveTab] = useState<'aim' | 'yamedoki' | 'settings'>('aim')
+  // Accordion open/close state for categories in the 示唆 tab (default all open)
+  const [openCategories, setOpenCategories] = useState<{ [key: number]: boolean }>({})
 
   if (!machine) return null
+
+  const toggleCategory = (idx: number) => {
+    setOpenCategories((prev) => ({
+      ...prev,
+      // If undefined, default was open (true), so toggle to false
+      [idx]: prev[idx] === undefined ? false : !prev[idx],
+    }))
+  }
+
+  const isCategoryOpen = (idx: number) => {
+    // Default is open (true)
+    return openCategories[idx] !== false
+  }
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
@@ -24,7 +39,7 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
           <h2 className="modal-name">{machine.name}</h2>
         </div>
 
-        {/* 3 Core Tab Navigation: 狙い目 / やめ時 / 設定示唆 */}
+        {/* 3 Core Tab Navigation: 狙い目 / やめ時 / 示唆 */}
         <div className="modal-nav-tabs">
           <button
             className={`nav-tab-btn ${activeTab === 'aim' ? 'active' : ''}`}
@@ -42,7 +57,7 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             className={`nav-tab-btn ${activeTab === 'settings' ? 'active' : ''}`}
             onClick={() => setActiveTab('settings')}
           >
-            🏆 設定示唆
+            🏆 示唆
           </button>
         </div>
 
@@ -103,36 +118,57 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             </div>
           )}
 
-          {/* TAB 3: 🏆 設定示唆 */}
+          {/* TAB 3: 🏆 示唆 (アコーディオン・プルダウン開閉対応) */}
           {activeTab === 'settings' && (
             <div className="tab-pane">
-              {machine.settingSignals.map((cat, idx) => (
-                <div key={idx} className="category-block">
-                  <h3 className="category-heading">{cat.categoryName}</h3>
-                  <div className="signal-stack">
-                    {cat.items.map((item, i) => (
-                      <div key={i} className={`signal-item-card priority-${item.priority}`}>
-                        <div className="signal-badge-col">
-                          <span className={`status-badge ${item.priority}`}>
-                            {item.badge}
-                          </span>
-                        </div>
-                        <div className="signal-body-col">
-                          <div className="signal-char-quote">
-                            {item.character && <span className="char-name">{item.character}:</span>}
-                            <span className="quote-text">{item.content}</span>
-                          </div>
-                        </div>
-                        {item.action && (
-                          <div className="signal-action-col">
-                            <span className="action-pill">{item.action}</span>
-                          </div>
-                        )}
+              <div className="accordion-help-note">
+                ※ 題名をタップすると示唆の開閉（プルダウン）ができます
+              </div>
+              {machine.settingSignals.map((cat, idx) => {
+                const isOpen = isCategoryOpen(idx)
+                return (
+                  <div key={idx} className="category-block accordion-block">
+                    <button
+                      className={`category-accordion-btn ${isOpen ? 'open' : 'closed'}`}
+                      onClick={() => toggleCategory(idx)}
+                      type="button"
+                    >
+                      <div className="accordion-title-group">
+                        <span className="accordion-title-text">{cat.categoryName}</span>
+                        <span className="accordion-count-badge">({cat.items.length}件)</span>
                       </div>
-                    ))}
+                      <span className={`accordion-arrow ${isOpen ? 'arrow-up' : 'arrow-down'}`}>
+                        {isOpen ? '▲' : '▼'}
+                      </span>
+                    </button>
+
+                    {isOpen && (
+                      <div className="signal-stack accordion-content">
+                        {cat.items.map((item, i) => (
+                          <div key={i} className={`signal-item-card priority-${item.priority}`}>
+                            <div className="signal-badge-col">
+                              <span className={`status-badge ${item.priority}`}>
+                                {item.badge}
+                              </span>
+                            </div>
+                            <div className="signal-body-col">
+                              <div className="signal-char-quote">
+                                {item.character && <span className="char-name">{item.character}:</span>}
+                                <span className="quote-text">{item.content}</span>
+                              </div>
+                            </div>
+                            {item.action && (
+                              <div className="signal-action-col">
+                                <span className="action-pill">{item.action}</span>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           )}
 
