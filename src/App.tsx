@@ -116,8 +116,9 @@ function App() {
                 <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル</li>
                 <li>📱 ノリ打ち・パートナー共有用コピペメモ</li>
                 <li>💬 メンバー専用Discord（一般・収支報告）参加権</li>
+                <li>🤝 <strong>ノリ打ち募集への「応募・参加」権</strong></li>
                 <li className="benefit-disabled">✕ 稼働中SOS・即レス質問（閲覧のみ）</li>
-                <li className="benefit-disabled">✕ ノリ打ちマッチング・仲間募集機能</li>
+                <li className="benefit-disabled">✕ ノリ打ちの「新規募集作成」権</li>
               </ul>
               <a
                 href="https://mosh.jp"
@@ -142,7 +143,7 @@ function App() {
                 <li>🔥 <strong>スタンダードの全特典</strong>をすべて含む</li>
                 <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先回答）</strong></li>
                 <li>⚡ <strong>導入初週の新台最速実戦・未公開データ速報</strong></li>
-                <li>🤝 <strong>ノリ打ち仲間募集・マッチング掲示板の利用権</strong></li>
+                <li>🤝 <strong>ノリ打ち仲間マッチング「新規募集・作成」権</strong></li>
                 <li>🎖️ <strong>Discord限定 プレミアムプロ認証バッジ付与</strong></li>
               </ul>
               <a
