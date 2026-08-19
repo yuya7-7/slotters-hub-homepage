@@ -83,9 +83,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
           {/* TAB 1: 🎯 狙い目 & 動画要約 */}
           {activeTab === 'aim' && (
             <div className="tab-pane">
-              {/* 狙い目の要約 */}
+              {/* 要点！ */}
               <div className="aim-block video-summary-box">
-                <div className="block-label">🎯 狙い目の要約</div>
+                <div className="block-label">💡 要点！</div>
                 <ul className="video-summary-list">
                   {machine.aimPoints.videoSummary.map((item, i) => (
                     <li key={i}>{item}</li>
@@ -93,9 +93,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
                 </ul>
               </div>
 
-              {/* 打つべき示唆・パターン */}
+              {/* 狙い目 */}
               <div className="aim-block triggers-box">
-                <div className="block-label">🔥 見つけたら打つべきモード示唆</div>
+                <div className="block-label">🎯 狙い目</div>
                 <div className="trigger-chips">
                   {machine.aimPoints.triggerSignals.map((sig, i) => (
                     <div key={i} className="trigger-chip-item">
