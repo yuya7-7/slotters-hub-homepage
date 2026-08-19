@@ -9,11 +9,6 @@ interface MachineCardProps {
 export const MachineCard: React.FC<MachineCardProps> = ({ machine, onSelect }) => {
   return (
     <div className="machine-card" onClick={() => onSelect(machine)}>
-      <div className="machine-card-header">
-        <span className="maker-badge">{machine.maker}</span>
-        <span className="type-badge">{machine.type}</span>
-      </div>
-
       <h3 className="machine-card-title">{machine.name}</h3>
 
       <div className="machine-summary-box">

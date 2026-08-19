@@ -21,10 +21,6 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
 
         {/* Modal Top Header */}
         <div className="modal-header-compact">
-          <div className="badge-row">
-            <span className="maker-badge">{machine.maker}</span>
-            <span className="type-badge">{machine.type}</span>
-          </div>
           <h2 className="modal-name">{machine.name}</h2>
         </div>
 
