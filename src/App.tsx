@@ -79,6 +79,9 @@ function App() {
           )}
         </section>
 
+        {/* Section Divider */}
+        <hr className="section-divider" />
+
         {/* Community 4 Features Section (4大カード) */}
         <section id="features" className="features-section">
           <div className="section-title-wrap">
@@ -120,6 +123,9 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* Section Divider */}
+        <hr className="section-divider" />
 
         {/* VIP Pricing Section */}
         <section id="plans" className="plans-section">

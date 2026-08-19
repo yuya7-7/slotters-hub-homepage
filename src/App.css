@@ -9,6 +9,14 @@
   margin-bottom: 20px;
 }
 
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #cbd5e1 15%, #cbd5e1 85%, transparent);
+  margin: 48px auto;
+  max-width: 900px;
+}
+
 /* Search Section */
 .search-section {
   max-width: 640px;
