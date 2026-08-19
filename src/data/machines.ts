@@ -112,6 +112,147 @@ export const MACHINES_DATA: Machine[] = [
     }
   },
   {
+    id: 'enen',
+    name: 'Lパチスロ 炎炎ノ消防隊',
+    kana: 'えるえんえんのしょうぼうたい',
+    maker: 'SANKYO',
+    type: 'スマスロ (AT)',
+    tags: ['大人気', 'SANKYO', 'スマスロ'],
+    ceilingSummary: '最大850G（リセ時 650G短縮）/ 伝道者5スルー',
+    yameDokiSummary: '炎炎激闘（ST）抜け 即ヤメ',
+    highlightSignal: '黒枠=高設定 / 伝道者5スルー=SPエピボ濃厚',
+    aimPoints: {
+      videoSummary: [
+        '【伝道者の罠スルー天井】ST非当選のREG（伝道者の罠）が5連続した台は、次回6回目のボーナスが「SPエピソードボーナス」濃厚。',
+        '【ST間天井】炎炎激闘（ST）間2000G（リセット時1500G）消化で天井到達となりSPエピソードボーナス当選。',
+        '【リセット短縮】朝イチ設定変更時はボーナス間天井が650G＋αに短縮。'
+      ],
+      triggerSignals: [
+        '伝道者の罠 4スルー・5スルー台 ➔ SPエピソードボーナスまでツッパ',
+        'ST間ハマリ（通常時1500G以上）台 ➔ ST間天井（2000G）狙い',
+        'リセット台（朝イチ） ➔ 650G短縮天井狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: '炎炎激闘（ST）終了後、潜伏前兆（約30G）を否定して即ヤメ',
+      stopNg: '伝道者の罠 4スルー以上、ST間1400G以上ハマリ台',
+      tip: '浅いREG履歴は初当りとST中の見極めが必要（データ機確認）。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🖼️ ボーナス終了画面（設定示唆）',
+        items: [
+          { badge: '設定6濃厚', character: '終了画面', content: '紅丸＆ジョーカー（金枠）', meaning: '設定6濃厚！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上濃厚', character: '終了画面', content: 'シンラ＆アーサー（赤枠）', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: '終了画面', content: '第8特殊消防隊（黒枠）', meaning: '高設定示唆（強）', priority: 'warning' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lパチスロ 炎炎ノ消防隊 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】ST間天井（2000G）・伝道者スルー回数別ボーダー',
+        '裏炎炎激闘 ＆ 有利切断アドラバースト突入条件',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'mhrise',
+    name: 'スマスロ モンスターハンターライズ',
+    kana: 'すますろもんすたーはんたーらいず',
+    maker: 'アデリオン',
+    type: 'スマスロ (AT)',
+    tags: ['大人気', 'アデリオン', 'スマスロ'],
+    ceilingSummary: '最大999G / クエスト最大6スルー',
+    yameDokiSummary: 'ボーナス後 カムラpt確認後ヤメ',
+    highlightSignal: 'Lala&ミランダ=設定56示唆強 / 虹トロフィー=設定6',
+    aimPoints: {
+      videoSummary: [
+        '【クエストスルー回数天井】クエスト6回連続失敗後の7回目クエストでボーナス確定。',
+        '【風車回転（カムラポイント示唆）】液晶右下の風車が多く回るほど次回クエストまでの規定ポイントが近いサイン。',
+        '【マガイマガドモード】液晶に紫の炎が浮かび上がるとマガイマガドモード（討伐で上位恩恵）滞在のチャンス。'
+      ],
+      triggerSignals: [
+        'クエスト 4スルー・5スルー台 ➔ スルー天井（最大7回）狙い',
+        'マガイマガド紫炎エフェクト頻発 ➔ マガイマガド討伐までツッパ',
+        'リプレイ40回 アイルーセリフ「大チャンス」 ➔ CZ突入まで'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボーナス・AT終了後、カムラポイントゾーン前兆否定で即ヤメ',
+      stopNg: 'クエスト4スルー以上、マガイマガドモード示唆台',
+      tip: 'エンタトロフィーは特定タイミング以外でも出現するため毎ゲーム注視。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 ボーナス終了画面 ＆ トロフィー（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: 'トロフィー / 終了画面', content: '虹トロフィー / 全員集合画面', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'トロフィー', content: 'もみじ柄トロフィー', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'トロフィー', content: '金トロフィー', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定56示唆 [強]', character: '終了画面', content: 'Lala＆ミランダ＆隊長', meaning: '設定5・6示唆（強・実戦上出現率激高）！', priority: 'warning', action: '終日ツッパ視野' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'スマスロ モンハンライズ 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】クエストスルー回数・規定カムラpt思考停止ボーダー',
+        '百竜夜行 ＆ 気焔万丈有利切断マニュアル',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'onimusha3',
+    name: 'スマスロ 新鬼武者3',
+    kana: 'すますろしんおにむしゃすりー',
+    maker: 'アデリオン',
+    type: 'スマスロ (AT)',
+    tags: ['人気シリーズ', 'アデリオン', 'スマスロ'],
+    ceilingSummary: '最大1000G / 6周期（リセ時 4周期短縮）',
+    yameDokiSummary: 'AT後 1周期目抜け即ヤメ',
+    highlightSignal: '覚醒鬼武者=高確C / 秀吉失敗後=1周期短縮',
+    aimPoints: {
+      videoSummary: [
+        '【周期天井短縮】設定変更時は最大4周期に短縮。さらに「秀吉最終決戦失敗後」は次回1周期目に短縮。',
+        '【鬼カウンター色変化】襖ウィンドウのセリフで鬼カウンターの色変化（紫・赤）が発生すれば大チャンス。'
+      ],
+      triggerSignals: [
+        '秀吉最終決戦 失敗後台 ➔ 次回1周期目当選までツッパ',
+        'リセット台 ➔ 4周期短縮天井狙い',
+        '4周期・5周期ハマリ台 ➔ 周期天井（最大6周期）狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、1周期目抜け（前兆否定）で即ヤメ',
+      stopNg: '秀吉最終決戦失敗後、鬼カウンター赤点灯台',
+      tip: '秀吉失敗後の1周期短縮は一般客の見落としが多い超お宝パターン。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 AT終了画面 ＆ トロフィー（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: 'トロフィー', content: '虹トロフィー', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'トロフィー', content: 'もみじ柄トロフィー', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'トロフィー', content: '金トロフィー', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'スマスロ 新鬼武者3 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】周期別（秀吉後1周期・短縮4周期）思考停止ボーダー',
+        '極限覚醒ラッシュ ＆ 差枚数切断トリガー狙い手順',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
     id: 'monkey5',
     name: 'スマスロ モンキーターンV',
     kana: 'すますろもんきーたーんふぁいぶ',
@@ -168,17 +309,18 @@ export const MACHINES_DATA: Machine[] = [
     maker: 'SANKYO',
     type: 'スマスロ (AT)',
     tags: ['高純増', 'SANKYO', 'スマスロ'],
-    ceilingSummary: '最大1100G / CZ最大7スルー',
+    ceilingSummary: '最大1100G（REG後900G）/ CZ最大7スルー',
     yameDokiSummary: '130G引き戻し抜けヤメ',
     highlightSignal: 'アイキャッチ赤=天井短縮 / 金枠=設定4↑',
     aimPoints: {
       videoSummary: [
+        '【REG後天井短縮】REG単発後は天井が液晶900G＋αに短縮。',
         '【130G引き戻し仕様】ボーナス・EXTRA終了後は130G付近まで引き戻し高確率。特に「超BIGループ後」や「裏REG後」は引き戻し率が大幅UP。',
         '【アイキャッチ赤の法則】ステージチェンジ時のアイキャッチが赤背景なら、規定チャンス目天井が大幅短縮濃厚。'
       ],
       triggerSignals: [
         'アイキャッチ「赤背景」 ➔ 規定チャンス目短縮濃厚（次回CZまでツッパ）',
-        '時計演出で長針・短針が「夜」を指す ➔ チャンス目規定回数近し',
+        'REG後 ハマリ台 ➔ 900G短縮天井狙い',
         'CZ 4スルー以上 ➔ スルー天井（最大7回）狙い'
       ]
     },
@@ -547,70 +689,25 @@ export const MACHINES_DATA: Machine[] = [
     }
   },
   {
-    id: 'otome5',
-    name: 'L戦国乙女5 業火を穿つ宿焔の双刃',
-    kana: 'えるせんごくおとめふぁいぶ',
-    maker: 'オリンピア',
-    type: 'スマスロ (AT)',
-    tags: ['人気シリーズ', '平和', 'スマスロ'],
-    ceilingSummary: '最大799G ＋ 前兆（リセ時 600G短縮）',
-    yameDokiSummary: 'AT後 乙女アタック・前兆否定でヤメ',
-    highlightSignal: '金スタンプ=設定4↑ / 虹スタンプ=設定6',
-    aimPoints: {
-      videoSummary: [
-        '【ゴエモン依頼ポイント】液晶右上の家紋エフェクト大出現時はポイントMAX（CZ突入）間近。',
-        '【朝イチ恩恵】設定変更時は天井が600Gに短縮＋モード優遇。'
-      ],
-      triggerSignals: [
-        'ゴエモン依頼ポイント「蓄積大」 ➔ CZ突入までツッパ',
-        'リセット台（朝イチ0G〜） ➔ 600G短縮天井狙い',
-        '巫女カウンタ減算狙い ➔ 規定pt到達まで'
-      ]
-    },
-    yameRules: {
-      stopOk: 'AT終了後、乙女アタック前兆否定（約30G）で即ヤメ',
-      stopNg: 'ゴエモンポイント大、金スタンプ以上出現台',
-      tip: '前兆ステージ（軍師ステージ等）抜けをしっかり見極める。'
-    },
-    settingSignals: [
-      {
-        categoryName: '🏆 AT終了画面 スタンプ（設定確定）',
-        items: [
-          { badge: '設定6確定', character: 'スタンプ', content: '極スタンプ（虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: 'スタンプ', content: '優スタンプ（金）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: 'スタンプ', content: '良スタンプ（銀）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
-        ]
-      }
-    ],
-    vipTeaser: {
-      title: 'L戦国乙女5 完全攻略（VIP限定）',
-      points: [
-        '【出玉率106%以上】リセット時・ゾーン狙い・短縮天井ボーダー',
-        'ゴエモンポイント狙い ＆ 有利切断恩恵マニュアル',
-        'ノリ打ち共有用メモ ＆ 現場Q&A',
-        'Discordリアルタイム質問部屋'
-      ]
-    }
-  },
-  {
     id: 'kabaneri2',
     name: 'スマスロ 甲鉄城のカバネリ 海門決戦',
     kana: 'すますろこうてつじょうのかばねりかいもんけっせん',
     maker: 'サミー',
     type: 'スマスロ (AT)',
     tags: ['人気シリーズ', 'サミー', 'スマスロ'],
-    ceilingSummary: '最大1000G ＋ 前兆（リセ時 650G短縮）',
+    ceilingSummary: '最大996G（短縮時 596G / 4周期）',
     yameDokiSummary: 'ST終了後 即ヤメ（短縮時は次回考慮）',
     highlightSignal: '生駒＆無名（虹）=設定6 / 菖蒲（金）=設定4↑',
     aimPoints: {
       videoSummary: [
-        '【リセット短縮天井】設定変更時は天井が650G＋前兆に短縮。さらに美馬ST後・上位ST後も650G天井に短縮。',
+        '【短縮天井596G】設定変更時や美馬ST後、上位ST後は天井が596G＋α（最大4周期）に短縮。',
+        '【ボーナス中ボイス】カバネリボーナス中の逆押し成功時ボイスで「景之（かげゆき）」発生時は高設定示唆。',
         '【黒煙ポイント】液晶左下の黒煙エフェクト（大）出現時は裏美馬ST直撃濃厚のため解放までツッパ。'
       ],
       triggerSignals: [
         '黒煙エフェクト「大」出現 ➔ 裏美馬ST解放までツッパ',
-        'リセット台 / 美馬ST後 ➔ 650G短縮天井狙い',
-        'カバネリポイント蓄積MAX間近台 ➔ CZ発動までツッパ'
+        'リセット台 / 美馬ST後 ➔ 596G短縮天井狙い',
+        'サブ液晶 規定ポイント赤点灯 ➔ 周期到達までツッパ'
       ]
     },
     yameRules: {
@@ -620,65 +717,20 @@ export const MACHINES_DATA: Machine[] = [
     },
     settingSignals: [
       {
-        categoryName: '🏆 ST終了画面（設定示唆）',
+        categoryName: '🏆 ST終了画面 ＆ ボーナス中ボイス（設定示唆）',
         items: [
           { badge: '設定6確定', character: '終了画面', content: '生駒＆無名（虹枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定5以上確定', character: '終了画面', content: '美馬＆無名（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定4以上確定', character: '終了画面', content: '菖蒲（金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '高設定示唆 [強]', character: '終了画面', content: '無名（単独・夕方）', meaning: '高設定示唆（強）', priority: 'warning' }
+          { badge: '高設定示唆 [強]', character: 'ボイス', content: '景之（かげゆき）ボイス発生', meaning: '高設定示唆（強・合算10〜17%）', priority: 'warning' }
         ]
       }
     ],
     vipTeaser: {
       title: 'スマスロ カバネリ海門決戦 完全攻略（VIP限定）',
       points: [
-        '【出玉率106%以上】リセット時（650G）・美馬ST後短縮思考停止ボーダー',
+        '【出玉率106%以上】リセット時（596G）・美馬ST後短縮思考停止ボーダー',
         '黒煙ポイント狙い ＆ 裏美馬ST突入条件の完全把握',
-        'ノリ打ち共有用メモ ＆ 現場Q&A',
-        'Discordリアルタイム質問部屋'
-      ]
-    }
-  },
-  {
-    id: 'ga-rei',
-    name: 'Lパチスロ 喰霊-零-Re',
-    kana: 'えるぱちすろがれいぜろあーるいー',
-    maker: 'JFJ',
-    type: 'スマスロ (AT)',
-    tags: ['最新台', 'JFJ', 'スマスロ'],
-    ceilingSummary: '最大999G ＋ 前兆（無限ART当選）',
-    yameDokiSummary: 'ボーナス・ART後 前兆否定で即ヤメ',
-    highlightSignal: '殺生石役物=高確示唆 / 妖力穢れ蓄積',
-    aimPoints: {
-      videoSummary: [
-        '【999G天井恩恵の破壊力】通常時999G到達時は「無限ART」当選が濃厚となり、次回ボーナス当選までARTが継続する最強恩恵。',
-        '【妖力ポイント（穢れ）】CZ失敗時やハマリで蓄積する妖力ポイントがMAXになると上位CZ突入。'
-      ],
-      triggerSignals: [
-        '液晶左上「殺生石役物」発光 ➔ 高確・超高確滞在濃厚（ツッパ）',
-        '妖力エフェクト「大」出現 ➔ 妖力解放までツッパ'
-      ]
-    },
-    yameRules: {
-      stopOk: 'ボーナス・ART終了後、殺生石役物消灯 ＋ 前兆否定で即ヤメ',
-      stopNg: '妖力エフェクト大、殺生石役物点滅中の台',
-      tip: '天井恩恵が無限ARTのため、深いハマリ台は最優先で確保。'
-    },
-    settingSignals: [
-      {
-        categoryName: '🖼️ ボーナス・ART終了画面（設定示唆）',
-        items: [
-          { badge: '設定6確定', character: '終了画面', content: '黄泉＆神楽（ウェディング・虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定5以上確定', character: '終了画面', content: '対策室メンバー集合（赤）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '設定4以上確定', character: '終了画面', content: '黄泉＆神楽（私服・金）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
-        ]
-      }
-    ],
-    vipTeaser: {
-      title: 'Lパチスロ 喰霊-零-Re 完全攻略（VIP限定）',
-      points: [
-        '【出玉率106%以上】無限ART天井（999G）・思考停止ボーダー',
-        '妖力穢れポイント蓄積狙い ＆ 殺生石高確見極め手順',
         'ノリ打ち共有用メモ ＆ 現場Q&A',
         'Discordリアルタイム質問部屋'
       ]
