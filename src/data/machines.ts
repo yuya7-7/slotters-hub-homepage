@@ -253,6 +253,418 @@ export const MACHINES_DATA: Machine[] = [
     }
   },
   {
+    id: 'eva-shin',
+    name: 'Lシン・エヴァンゲリオン',
+    kana: 'えるしんえゔぁんげりおん',
+    maker: 'ビスティ',
+    type: 'スマスロ (AT)',
+    tags: ['人気シリーズ', 'ビスティ', 'スマスロ'],
+    ceilingSummary: '最大1000G ＋ 前兆（リセ時 600G短縮）',
+    yameDokiSummary: 'AT後 100G前兆否定でヤメ',
+    highlightSignal: 'カヲル=設定6確定 / マリ＆アスカ=設定4↑',
+    aimPoints: {
+      videoSummary: [
+        '【リセット短縮天井】設定変更時は最大600G＋前兆に天井短縮。',
+        '【使徒バトル敗北時示唆】使徒バトル終了時のアイキャッチやボイスで次回CZ当選期待度を示唆。'
+      ],
+      triggerSignals: [
+        'リセット台 ➔ 600G短縮天井狙い',
+        'CZ 3スルー以上台 ➔ スルー天井狙い',
+        'アイキャッチ「赤背景」 ➔ 当選までツッパ'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボーナス・AT終了後、100Gゾーン前兆否定で即ヤメ',
+      stopNg: 'カヲル画面、CZ 3スルー以上台',
+      tip: '100GゾーンでのCZ当選率をチェックしてヤメる。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 ボーナス・AT終了画面（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面', content: '渚カヲル（単独・虹）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: 'シンジ＆カヲル（赤）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: 'マリ＆アスカ（金）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lシン・エヴァンゲリオン 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】リセット時・CZスルー回数別思考停止ボーダー',
+        '暴走モード突入条件 ＆ 有利切断恩恵マニュアル',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'index2',
+    name: 'スマスロ とある魔術の禁書目録2',
+    kana: 'すますろとあるまじゅつのいんでっくすつー',
+    maker: 'JFJ',
+    type: 'スマスロ (AT)',
+    tags: ['人気シリーズ', 'JFJ', 'スマスロ'],
+    ceilingSummary: '最大999G ＋ 前兆（CZ天井最大6回）',
+    yameDokiSummary: 'AT後 即ヤメ（モード確認後）',
+    highlightSignal: '当麻＆インデックス=設定6 / 麦野=設定4↑',
+    aimPoints: {
+      videoSummary: [
+        '【CZスルー回数天井】CZ最大6スルー（7回目CZ）でAT直撃。',
+        '【異能キャラ獲得】通常時のレア役で強力な異能キャラ（麦野・一方通行など）を獲得した台はCZ当選までツッパ推奨。'
+      ],
+      triggerSignals: [
+        'CZ 4スルー・5スルー台 ➔ AT当選までツッパ',
+        '強力な異能キャラ所持台 ➔ CZ当選まで',
+        'リセット台 ➔ 天井短縮狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、異能キャラ非所持 ＋ 前兆なしで即ヤメ',
+      stopNg: 'CZ 4スルー以上、一方通行等の強キャラ所持台',
+      tip: '異能キャラの組み合わせによる期待値を把握。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 AT終了画面 ＆ 藤丸コイン（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面 / コイン', content: '当麻＆インデックス（虹）/ 虹コイン', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: '御坂美琴＆食蜂操祈（赤）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面 / コイン', content: '麦野沈利（金）/ 金コイン', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'スマスロ 禁書目録2 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】CZスルー回数・異能キャラ所持別ボーダー',
+        'ULTIMATE BREAK ＆ 有利切断条件の完全把握',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'zenigata5',
+    name: 'L主役は銭形5',
+    kana: 'えるしゅやくはぜにがたふぁいぶ',
+    maker: '平和',
+    type: 'スマスロ (AT)',
+    tags: ['大人気シリーズ', '平和', 'スマスロ'],
+    ceilingSummary: '最大1399ガッツ（短縮時 899ガッツ）',
+    yameDokiSummary: 'ゼニガタイム前兆否定 即ヤメ',
+    highlightSignal: '銭形＆ルパン金枠=設定6 / 不二子=設定4↑',
+    aimPoints: {
+      videoSummary: [
+        '【執念ポイント解放】CZ失敗やハマリで蓄積する執念ポイントがMAXになると次回AT当選時にビッグゲーム確定。',
+        '【短縮天井】設定変更時や特定条件で最大899ガッツに短縮。'
+      ],
+      triggerSignals: [
+        '執念ポイント「蓄積大（紫エフェクト）」 ➔ 解放までツッパ',
+        'ゼニガダッシュ高確滞在台 ➔ ガッツ大量加算狙い',
+        'ハマリ台（900ガッツ以上） ➔ 天井ツッパ'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、ゼニガタイム前兆（約30G）を否定して即ヤメ',
+      stopNg: '執念ポイント大、高ガッツ到達台',
+      tip: '実ゲーム数ではなく液晶ガッツ数で判断。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 AT終了画面 スタンプ（設定確定）',
+        items: [
+          { badge: '設定6確定', character: '終了画面 / スタンプ', content: '銭形＆ルパン（金枠）/ 極スタンプ', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面 / スタンプ', content: 'ルパン一味（赤枠）/ 優スタンプ', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面 / スタンプ', content: '峰不二子（金枠）/ 良スタンプ', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'L主役は銭形5 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】液晶ガッツ数・短縮ガッツ別思考停止ボーダー',
+        '執念ポイント狙い ＆ 超逮捕ラッシュ有利切断術',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'nango-sp',
+    name: 'L南国育ち SPECIAL',
+    kana: 'えるなんごくそだちすぺしゃる',
+    maker: '平和',
+    type: 'スマスロ (沖スロ)',
+    tags: ['沖スロ', '平和', 'スマスロ'],
+    ceilingSummary: '最大999G（リセ時 333G短縮）',
+    yameDokiSummary: 'ときめきゾーン（32G）抜け 即ヤメ',
+    highlightSignal: 'プリメロボイス=設定4↑ / 虹蝶ランプ=設定6',
+    aimPoints: {
+      videoSummary: [
+        '【朝イチ333G短縮】設定変更時は天井が333Gに短縮。さらに通常B以上スタート率が優遇。',
+        '【遅れチェリー】レバーオン時の遅れ＋チェリー否定はボーナス濃厚。'
+      ],
+      triggerSignals: [
+        'リセット台（朝イチ0G〜） ➔ 333G短縮天井狙い',
+        '単発連続ハマリ台 ➔ 飛翔モード（天国）移行までツッパ'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボーナス終了後、ときめきゾーン（32G）抜けて即ヤメ',
+      stopNg: '初代モード示唆台、高設定確定ボイス台',
+      tip: '連チャン抜け32Gでスパッとヤメるのが鉄則。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🌺 ボーナス終了時ボイス ＆ 告知ランプ（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '告知ランプ', content: '虹蝶ランプ点灯', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: 'ボイス', content: 'プリメロ「ちゅらさん！（特殊ボイス）」', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'L南国育ち SPECIAL 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】リセット時（333G）・飛翔スルー回数別ボーダー',
+        '超バタフライモード ＆ 有利切断ループ条件',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'sao2',
+    name: 'スロット ソードアート・オンライン2',
+    kana: 'すろっとそーどあーとおんらいんつー',
+    maker: '大都技研',
+    type: 'スマスロ (AT)',
+    tags: ['人気シリーズ', '大都技研', 'スマスロ'],
+    ceilingSummary: '最大999G ＋ 前兆 / CZ最大6スルー',
+    yameDokiSummary: 'ボスバトル敗北・AT後 即ヤメ',
+    highlightSignal: 'キリト＆アスナ金枠=設定6 / アリス=設定4↑',
+    aimPoints: {
+      videoSummary: [
+        '【ボスバトル初回勝利優遇】リセット時や特定条件で1戦目ボスバトルの勝利期待度が大幅UP。',
+        '【CZスルー回数天井】CZ最大6スルー（7回目CZ）でAT直撃確定。'
+      ],
+      triggerSignals: [
+        'CZ 4スルー・5スルー台 ➔ スルー天井（AT直撃）までツッパ',
+        'おうちモード移行台 ➔ CZ突入まで',
+        'リセット台 ➔ 短縮天井・1戦目優遇狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボスバトル敗北時・AT終了後、前兆否定で即ヤメ',
+      stopNg: 'CZ 4スルー以上、設定4以上確定画面出現台',
+      tip: 'ミニキャラのアクションで高確・前兆を見極める。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 ボーナス・AT終了画面（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面', content: 'キリト＆アスナ（ウェディング・金枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: 'シノン＆リーファ（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: 'アリス＆ユージオ（金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'スロット SAO2 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】CZスルー回数・リセット短縮思考停止ボーダー',
+        'ALfheim Online ＆ 有利切断トリガー攻略',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'sencole6',
+    name: '戦国コレクション6',
+    kana: 'せんごくこれくしょんしっくす',
+    maker: 'コナミ',
+    type: 'スマスロ (AT)',
+    tags: ['人気シリーズ', 'コナミ', 'スマスロ'],
+    ceilingSummary: '最大1280コレ（短縮時 400コレ）',
+    yameDokiSummary: '128コレ前兆否定 即ヤメ',
+    highlightSignal: '信長＆秀吉=設定6 / ステージ赤=天国期待',
+    aimPoints: {
+      videoSummary: [
+        '【128コレ天国ゾーン】AT終了後の128コレ以内当選率は約35%〜高設定で優遇。',
+        '【裏天国モード】裏天国移行時は128コレ以内当選＋上位AT確定。'
+      ],
+      triggerSignals: [
+        'ステージ背景「赤」 ➔ 天国またはモードB濃厚（ツッパ）',
+        '修羅モード「赤文字」 ➔ 本前兆濃厚',
+        '短縮台（400コレ天井） ➔ 天井ツッパ'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、128コレ前兆（修羅モード）否定で即ヤメ',
+      stopNg: 'ステージ背景赤、コレ丸ランプ赤点灯台',
+      tip: '鬼ヶ島バカンスでのコレ数加算を見ながら攻める。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 AT終了画面 ＆ コナミコマンド（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: '終了画面', content: '信長＆秀吉（虹枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: '終了画面', content: '家康＆三成（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上確定', character: '終了画面', content: '信長（単独・金枠）', meaning: '設定4以上確定！', priority: 'danger', action: '終日ツッパ' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: '戦国コレクション6 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】規定コレ数・リセット短縮思考停止ボーダー',
+        '裏天国 ＆ 有利切断Super異世界制覇ラッシュ手順',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'sf6',
+    name: 'Lストリートファイター6',
+    kana: 'えるすとりーとふぁいたーしっくす',
+    maker: 'エンターライズ',
+    type: 'スマスロ (AT)',
+    tags: ['格闘ゲーム', 'エンターライズ', 'スマスロ'],
+    ceilingSummary: '最大999G ＋ 前兆 / 規定pt到達',
+    yameDokiSummary: 'ST・ボーナス後 前兆否定で即ヤメ',
+    highlightSignal: 'ボイス「456」=設定4↑ / 虹トロフィー=設定6',
+    aimPoints: {
+      videoSummary: [
+        '【ドライブチャンス後ボイス】ドライブチャンス終了画面でPUSHボタンを押すと設定示唆ボイスが発生。',
+        '【エンタトロフィー】ST終了画面でエンタトロフィーが出現すれば設定2以上濃厚。'
+      ],
+      triggerSignals: [
+        'リセット台 ➔ 短縮天井狙い',
+        'ハマリ台（700G以上） ➔ 天井ツッパ'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボーナス・ST終了後、前兆否定で即ヤメ',
+      stopNg: 'ボイス「456」、金トロフィー以上出現台',
+      tip: '連チャン後の高確移行率をチェック。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🗣️ ボイス ＆ トロフィー（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: 'トロフィー', content: '虹トロフィー', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定5以上確定', character: 'トロフィー', content: 'もみじ柄トロフィー', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上濃厚', character: 'ボイス', content: '「456（フォー・ファイブ・シックス）」', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆', character: 'ボイス', content: '「It’s so cool」', meaning: '高設定示唆', priority: 'warning' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lストリートファイター6 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】天井G数・スルー回数別思考停止ボーダー',
+        'パーフェクトKO ＆ 有利切断恩恵マニュアル',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'yabachiba',
+    name: 'Lヤバチバ',
+    kana: 'えるやばちば',
+    maker: 'ネット',
+    type: 'スマスロ (沖スロ)',
+    tags: ['沖スロ', 'ネット', 'スマスロ'],
+    ceilingSummary: '最大999G / チェリー最大40回（リセ時30回）',
+    yameDokiSummary: '虹7後 32G回して即ヤメ',
+    highlightSignal: '大滑りチェリー=虹7濃厚 / 単チェリー=本前兆',
+    aimPoints: {
+      videoSummary: [
+        '【大滑りチェリーの破壊力】3リール大滑りチェリーは「虹7ボーナス濃厚」。2リール大滑りはBIG以上。',
+        '【チェリー回数天井】チェリー最大40回（リセット時30回）でボーナス当選。'
+      ],
+      triggerSignals: [
+        '大滑りチェリー出現 ➔ 虹7ボーナス当選までツッパ',
+        '単チェリー出現 ➔ 本前兆またはストック保持濃厚（ツッパ）',
+        'チェリー回数ハマリ（25回以上）台 ➔ チェリー天井狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'ボーナス終了後、32G回して光らなければ即ヤメ',
+      stopNg: '大滑りチェリー出現台、ミニ花笠ランプ多灯台',
+      tip: '虹7モード後はベル集中移行率が高いため32G抜け後も小役を確認。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🌺 1日1回CHANCEボイス ＆ ランプ（設定示唆）',
+        items: [
+          { badge: '設定6確定', character: 'ボイス', content: '1日1回特殊プレミアムボイス（虹ランプ）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆', character: 'ボイス', content: 'リール停止時 違和感ボイス発生', meaning: '高設定示唆', priority: 'warning' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'Lヤバチバ 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】チェリー回数・リセット短縮思考停止ボーダー',
+        '虹7モード連チャン ＆ 有利切断ループ手順',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
+    id: 'hokuto-tensei2',
+    name: 'L北斗の拳 転生の章2',
+    kana: 'えるほくとのけんてんせいのしょうつー',
+    maker: 'サミー',
+    type: 'スマスロ (AT)',
+    tags: ['大注目新台', 'サミー', 'スマスロ'],
+    ceilingSummary: '最大1536あべし（リセ時 1280あべし）',
+    yameDokiSummary: '128あべし（天国）否定で即ヤメ',
+    highlightSignal: '上部中央ランプ金=設定6 / 伝承ロング=ツッパ',
+    aimPoints: {
+      videoSummary: [
+        '【上部中央ランプ示唆】ランプ点灯パターンで「黄緑点滅（設定4以上濃厚）」「金点灯（設定6濃厚）」。',
+        '【カサンドラ松明消灯】立ち止まり演出で松明消灯は高確滞在またはAT本前兆濃厚。',
+        '【リセット短縮】設定変更時は最大天井が1280あべしに短縮。'
+      ],
+      triggerSignals: [
+        '上部中央ランプ「黄緑点滅 / 金」 ➔ 終日ツッパ',
+        '天破の刻ロングループ（伝承ロング）滞在 ➔ 転落までツッパ',
+        'リセット台（朝イチ） ➔ 1280あべし短縮天井狙い'
+      ]
+    },
+    yameRules: {
+      stopOk: 'AT終了後、128あべし抜け ＋ 伝承モード転落で即ヤメ',
+      stopNg: '天破の刻高確（伝承モード）滞在中、上部ランプ示唆台',
+      tip: '天破の刻ループを捨てないよう伝承モード抜けを見極める。'
+    },
+    settingSignals: [
+      {
+        categoryName: '🏆 上部中央ランプ ＆ サミートロフィー（設定確定）',
+        items: [
+          { badge: '設定6濃厚', character: 'ランプ / トロフィー', content: '上部中央ランプ「金」/ 虹トロフィー', meaning: '設定6濃厚！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '設定4以上濃厚', character: 'ランプ / トロフィー', content: '上部中央ランプ「黄緑点滅」/ 金トロフィー', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
+          { badge: '高設定示唆 [強]', character: 'ランプ', content: '上部中央ランプ「水色点滅」', meaning: '高設定示唆（強）', priority: 'warning' }
+        ]
+      }
+    ],
+    vipTeaser: {
+      title: 'L北斗転生2 完全攻略（VIP限定）',
+      points: [
+        '【出玉率106%以上】規定あべし数・リセット短縮思考停止ボーダー',
+        '伝承モードループ率見極め ＆ SPバトル突入手順',
+        'ノリ打ち共有用メモ ＆ 現場Q&A',
+        'Discordリアルタイム質問部屋'
+      ]
+    }
+  },
+  {
     id: 'monkey5',
     name: 'スマスロ モンキーターンV',
     kana: 'すますろもんきーたーんふぁいぶ',
