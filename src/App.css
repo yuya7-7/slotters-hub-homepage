@@ -900,9 +900,17 @@
   border: 1.5px solid #cbd5e1;
 }
 
-.featured-plan {
-  border: 2px solid var(--secondary);
-  box-shadow: 0 8px 24px rgba(255, 140, 0, 0.15);
+.featured-standard {
+  border: 2.5px solid var(--primary);
+  box-shadow: 0 10px 30px rgba(0, 102, 204, 0.18);
+  background: white;
+  position: relative;
+}
+
+.coming-soon-plan {
+  border: 2px dashed #cbd5e1;
+  background: #f8fafc;
+  opacity: 0.92;
 }
 
 .plan-type-badge {
@@ -915,14 +923,15 @@
 }
 
 .standard-badge {
-  background: #f1f5f9;
-  color: #475569;
+  background: #eff6ff;
+  color: var(--primary);
+  border: 1px solid #bfdbfe;
 }
 
-.premium-badge {
-  background: #fff7ed;
-  color: #c2410c;
-  border: 1px solid #ffedd5;
+.coming-soon-badge {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
 }
 
 .plan-name {
@@ -939,8 +948,12 @@
   margin-bottom: 6px;
 }
 
-.featured-plan .plan-price {
-  color: var(--secondary);
+.featured-standard .plan-price {
+  color: var(--primary);
+}
+
+.coming-soon-plan .plan-price {
+  color: #64748b;
 }
 
 .plan-price .currency {
@@ -980,8 +993,7 @@
 
 .plan-benefits li.benefit-disabled {
   color: #94a3b8;
-  text-decoration: line-through;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .plan-btn {
@@ -990,14 +1002,12 @@
   padding: 12px;
 }
 
-.btn-outline {
-  background: white;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-
-.btn-outline:hover {
-  background: #f0f7ff;
+.btn-coming-soon {
+  background: #e2e8f0;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  cursor: not-allowed;
+  font-weight: 800;
 }
 
 .plans-footer-note {

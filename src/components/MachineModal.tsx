@@ -197,9 +197,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             </div>
           )}
 
-          {/* 🔒 VIP Teaser (Premium Exclusive) */}
+          {/* 🔒 VIP Teaser (Premium Exclusive Teaser) */}
           <div className="vip-teaser-compact">
-            <div className="vip-ribbon">🔒 プレミアム会員限定で完全攻略ノート公開中</div>
+            <div className="vip-ribbon">🔒 プレミアム限定 完全攻略ノート（近日公開）</div>
             <h4 className="vip-teaser-title">{machine.vipTeaser.title}</h4>
             <ul className="vip-teaser-list">
               {machine.vipTeaser.points.map((pt, i) => (
@@ -207,9 +207,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
               ))}
             </ul>
             <div className="vip-teaser-action">
-              <span className="price-label">プレミアム <strong>¥1,900</strong>/月</span>
+              <span className="price-label">先行エントリー <strong>¥500</strong>/月</span>
               <a href="#plans" onClick={onClose} className="btn btn-cta btn-compact">
-                プレミアムでプロボーダーを見る →
+                まずはスタンダード（¥500）で参加する →
               </a>
             </div>
           </div>

@@ -104,52 +104,24 @@ function App() {
           </div>
 
           <div className="plans-grid-two">
-            {/* Standard Plan (¥500) */}
-            <div className="card plan-card standard-plan">
-              <div className="plan-type-badge standard-badge">エントリー</div>
+            {/* Standard Plan (¥500 - Active Main CTA) */}
+            <div className="card plan-card standard-plan featured-standard">
+              <div className="plan-type-badge standard-badge">🔥 先行募集中・ワンコイン</div>
               <h3 className="plan-name">スタンダード会員</h3>
               <div className="plan-price">
                 <span className="currency">¥</span>500
                 <span className="period"> / 月</span>
               </div>
-              <p className="plan-target">プロの募集に参加 ＆ 仲間と交流したい方向け</p>
+              <p className="plan-target">ノリ打ち仲間を探したい ＆ 全国のホール情報を見たい方向け</p>
               <ul className="plan-benefits">
                 <li>🤝 <strong>ノリ打ち募集への「閲覧 ＆ 応募・参加」権</strong></li>
                 <li>🚨 <strong>稼働中SOS部屋の「リアルタイム閲覧（過去ログ見放題）」</strong></li>
                 <li>📊 <strong>全国のホール生情報・設定状況共有スレッド参加</strong></li>
                 <li>💬 メンバー専用Discord（一般・雑談・収支報告）参加権</li>
                 <li>📱 トラブル防止！ノリ打ち清算ルール＆収支管理テンプレ</li>
-                <li className="benefit-disabled">✕ 全機種106%攻略ノート（思考停止ボーダー）</li>
-                <li className="benefit-disabled">✕ 稼働中SOSの「直接質問・個別相談」</li>
-                <li className="benefit-disabled">✕ ノリ打ちの「新規募集作成」権</li>
-              </ul>
-              <a
-                href="https://mosh.jp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline plan-btn"
-              >
-                スタンダードに参加（¥500）
-              </a>
-            </div>
-
-            {/* Premium Plan (¥1,900) */}
-            <div className="card plan-card featured-plan">
-              <div className="plan-type-badge premium-badge">おすすめ・本気で稼ぐ方向け</div>
-              <h3 className="plan-name">プレミアム（プロ）会員</h3>
-              <div className="plan-price">
-                <span className="currency">¥</span>1,900
-                <span className="period"> / 月</span>
-              </div>
-              <p className="plan-target">106%攻略ノート・リアルタイムSOSで毎月勝ち越す本気層向け</p>
-              <ul className="plan-benefits">
-                <li>🔥 <strong>全25機種以上 完全攻略ノート（106%思考停止ボーダー）読み放題</strong></li>
-                <li>📊 <strong>差枚優遇・冷遇・15G天国刈りマニュアル見放題</strong></li>
-                <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先直接質問）</strong></li>
-                <li>⚡ <strong>導入初週の新台最速実戦・未公開データ速報</strong></li>
-                <li>🤝 <strong>ノリ打ち仲間マッチング「新規募集・作成」権</strong></li>
-                <li>🎖️ <strong>Discord限定 プレミアムプロ認証バッジ付与</strong></li>
-                <li>✓ スタンダードの全特典（コミュニティ交流等）をすべて含む</li>
+                <li className="benefit-disabled">🔒 全機種106%攻略ノート（プレミアムで近日解禁）</li>
+                <li className="benefit-disabled">🔒 稼働中SOSの「直接質問・個別相談」</li>
+                <li className="benefit-disabled">🔒 ノリ打ちの「新規募集作成」権</li>
               </ul>
               <a
                 href="https://mosh.jp"
@@ -157,8 +129,35 @@ function App() {
                 rel="noopener noreferrer"
                 className="btn btn-cta plan-btn"
               >
-                プレミアムに参加（¥1,900） →
+                スタンダードに参加（¥500/月） →
               </a>
+            </div>
+
+            {/* Premium Plan (¥1,900 - Coming Soon Teaser) */}
+            <div className="card plan-card premium-plan coming-soon-plan">
+              <div className="plan-type-badge coming-soon-badge">🔒 近日解禁予定（Coming Soon）</div>
+              <h3 className="plan-name">プレミアム（プロ）会員</h3>
+              <div className="plan-price">
+                <span className="currency">¥</span>1,900
+                <span className="period"> / 月</span>
+              </div>
+              <p className="plan-target">106%思考停止ボーダー・優先SOSで本気で勝ち越すプロ向け</p>
+              <ul className="plan-benefits">
+                <li>🔥 <strong>全25機種以上 完全攻略ノート（106%思考停止ボーダー）読み放題</strong></li>
+                <li>📊 <strong>差枚優遇・冷遇・15G天国刈りマニュアル見放題</strong></li>
+                <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先直接質問）</strong></li>
+                <li>⚡ <strong>導入初週の新台最速実戦・未公開データ速報</strong></li>
+                <li>🤝 <strong>ノリ打ち仲間マッチング「新規募集・作成」権</strong></li>
+                <li>🎖️ <strong>Discord限定 プレミアムプロ認証バッジ付与</strong></li>
+                <li>✓ スタンダードの全特典をすべて含む</li>
+              </ul>
+              <button
+                type="button"
+                className="btn btn-coming-soon plan-btn"
+                disabled
+              >
+                🔒 近日公開予定（準備中）
+              </button>
             </div>
           </div>
 
