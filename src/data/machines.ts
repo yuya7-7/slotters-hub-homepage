@@ -102,13 +102,6 @@ export const MACHINES_DATA: Machine[] = [
           { badge: '高設定示唆 [強]', character: '終了画面', content: '青島（ドレス姿）', meaning: '高設定示唆（強）', priority: 'warning', action: '様子見' },
           { badge: '偶数設定示唆', character: '終了画面', content: '波多野一家 / 女性キャラ集合', meaning: '偶数設定示唆', priority: 'normal' }
         ]
-      },
-      {
-        categoryName: '🗣️ ラウンド開始画面・セリフ',
-        items: [
-          { badge: '設定4以上濃厚', character: '開始画面', content: '青島（水着）/ 澄（ドレス）', meaning: '設定4以上濃厚！', priority: 'danger', action: '終日ツッパ' },
-          { badge: '高設定示唆', character: '開始画面', content: 'ライバル集合画面', meaning: '高設定示唆', priority: 'warning' }
-        ]
       }
     ],
     vipTeaser: {
@@ -244,7 +237,7 @@ export const MACHINES_DATA: Machine[] = [
     },
     settingSignals: [
       {
-        categoryName: '🤖 終了画面 ＆ ラウンド開始画面（設定示唆）',
+        categoryName: '🤖 ボーナス・AT終了画面（設定示唆）',
         items: [
           { badge: '設定6確定', character: '終了画面', content: 'パイロット全員集合（虹枠）', meaning: '設定6確定！', priority: 'danger', action: '終日ツッパ' },
           { badge: '設定5以上確定', character: '終了画面', content: 'ハルト＆エルエルフ（赤枠）', meaning: '設定5以上確定！', priority: 'danger', action: '終日ツッパ' },
