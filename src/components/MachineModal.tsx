@@ -13,200 +13,178 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
 
   return (
     <div className="modal-backdrop" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-btn" onClick={onClose} aria-label="閉じる">
+      <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+        {/* Close Button */}
+        <button className="modal-close" onClick={onClose} aria-label="閉じる">
           ✕
         </button>
 
-        <div className="modal-header">
-          <div className="modal-tags">
-            <span className="maker-tag">{machine.maker}</span>
-            <span className="type-tag">{machine.type}</span>
+        {/* Modal Top Header */}
+        <div className="modal-header-compact">
+          <div className="badge-row">
+            <span className="maker-badge">{machine.maker}</span>
+            <span className="type-badge">{machine.type}</span>
           </div>
-          <h2 className="modal-title">{machine.name}</h2>
+          <h2 className="modal-name">{machine.name}</h2>
         </div>
 
-        {/* Tab Buttons */}
-        <div className="modal-tabs">
+        {/* 3 Tab Navigation */}
+        <div className="modal-nav-tabs">
           <button
-            className={`modal-tab ${activeTab === 'signals' ? 'active' : ''}`}
+            className={`nav-tab-btn ${activeTab === 'signals' ? 'active' : ''}`}
             onClick={() => setActiveTab('signals')}
           >
             👀 見るべき示唆
           </button>
           <button
-            className={`modal-tab ${activeTab === 'yamedoki' ? 'active' : ''}`}
+            className={`nav-tab-btn ${activeTab === 'yamedoki' ? 'active' : ''}`}
             onClick={() => setActiveTab('yamedoki')}
           >
             🛑 やめどき
           </button>
           <button
-            className={`modal-tab ${activeTab === 'specs' ? 'active' : ''}`}
+            className={`nav-tab-btn ${activeTab === 'specs' ? 'active' : ''}`}
             onClick={() => setActiveTab('specs')}
           >
-            📊 基本スペック
+            📊 スペック
           </button>
         </div>
 
-        <div className="modal-body">
-          {/* Tab 1: Signals */}
+        {/* Modal Content */}
+        <div className="modal-scroll-area">
+          {/* TAB 1: Signals (Visual Card Stack) */}
           {activeTab === 'signals' && (
-            <div className="tab-section">
-              <div className="section-note">
-                💡 <strong>現場で迷わないテキスト解説:</strong> 終了画面やボイスを即座に確認できます。
-              </div>
-
+            <div className="tab-pane">
               {machine.signals.map((category, idx) => (
-                <div key={idx} className="signal-group">
-                  <h4 className="signal-category-title">{category.categoryName}</h4>
-                  {category.description && (
-                    <p className="signal-category-desc">{category.description}</p>
-                  )}
-                  <div className="signal-table-wrapper">
-                    <table className="signal-table">
-                      <thead>
-                        <tr>
-                          <th>演出・セリフ</th>
-                          <th>示唆内容</th>
-                          <th>現場アクション</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {category.items.map((item, i) => (
-                          <tr
-                            key={i}
-                            className={`signal-row priority-${item.priority}`}
-                          >
-                            <td className="col-content">
-                              <strong>{item.content}</strong>
-                            </td>
-                            <td className="col-meaning">
-                              <span className={`priority-badge ${item.priority}`}>
-                                {item.priority === 'high' ? '🔥 激熱' : item.priority === 'mid' ? '✨ チャンス' : '通常'}
-                              </span>
-                              {item.meaning}
-                            </td>
-                            <td className="col-action">
-                              {item.action ? (
-                                <span className="action-tag">{item.action}</span>
-                              ) : (
-                                <span className="text-muted">—</span>
-                              )}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
+                <div key={idx} className="category-block">
+                  <h3 className="category-heading">{category.categoryName}</h3>
+                  <div className="signal-stack">
+                    {category.items.map((item, i) => (
+                      <div key={i} className={`signal-item-card priority-${item.priority}`}>
+                        <div className="signal-badge-col">
+                          <span className={`status-badge ${item.priority}`}>
+                            {item.badge}
+                          </span>
+                        </div>
+                        <div className="signal-body-col">
+                          <div className="signal-char-quote">
+                            {item.character && <span className="char-name">{item.character}:</span>}
+                            <span className="quote-text">{item.content}</span>
+                          </div>
+                        </div>
+                        {item.action && (
+                          <div className="signal-action-col">
+                            <span className="action-pill">{item.action}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
 
-              {machine.modeSignals && machine.modeSignals.map((modeCat, idx) => (
-                <div key={idx} className="signal-group">
-                  <h4 className="signal-category-title">{modeCat.categoryName}</h4>
-                  <div className="signal-table-wrapper">
-                    <table className="signal-table">
-                      <thead>
-                        <tr>
-                          <th>演出名</th>
-                          <th>発生タイミング</th>
-                          <th>確信度</th>
-                          <th>備考</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {modeCat.items.map((item, i) => (
-                          <tr key={i} className="signal-row">
-                            <td className="col-content"><strong>{item.title}</strong></td>
-                            <td>{item.timing}</td>
-                            <td><span className="star-rating">{item.stars}</span></td>
-                            <td>{item.note || '—'}</td>
-                          </tr>
+              {/* Tenkoku Quick Chips */}
+              {machine.tenkokuSignals && (
+                <div className="category-block">
+                  <h3 className="category-heading">⚡ 通常時の天国（高確）示唆</h3>
+                  
+                  <div className="tenkoku-group danger-group">
+                    <div className="tenkoku-group-title">🔥 即ヤメ厳禁（天国濃厚・ツッパ）</div>
+                    <div className="chip-cloud">
+                      {machine.tenkokuSignals.danger.map((sig, i) => (
+                        <span key={i} className="signal-chip danger-chip">
+                          {sig}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {machine.tenkokuSignals.warning.length > 0 && (
+                    <div className="tenkoku-group warning-group">
+                      <div className="tenkoku-group-title">✨ チャンス（様子見）</div>
+                      <div className="chip-cloud">
+                        {machine.tenkokuSignals.warning.map((sig, i) => (
+                          <span key={i} className="signal-chip warning-chip">
+                            {sig}
+                          </span>
                         ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Tab 2: Yame-doki */}
-          {activeTab === 'yamedoki' && (
-            <div className="tab-section">
-              <div className="yamedoki-card">
-                <div className="yamedoki-basic-header">
-                  <span className="yamedoki-icon">🛑</span>
-                  <div>
-                    <h4>基本のやめどき原則</h4>
-                    <p>{machine.yameDoki.basic}</p>
-                  </div>
-                </div>
-
-                <h4 className="subheading">📋 必ず確認すべきチェックポイント</h4>
-                <ul className="check-list">
-                  {machine.yameDoki.checkPoints.map((pt, i) => (
-                    <li key={i}>{pt}</li>
-                  ))}
-                </ul>
-
-                <h4 className="subheading">⚡ 迷わない判断ステップ</h4>
-                <div className="steps-container">
-                  {machine.yameDoki.steps.map((st) => (
-                    <div key={st.step} className="step-card">
-                      <div className="step-num">Step {st.step}</div>
-                      <div className="step-info">
-                        <strong>{st.title}</strong>
-                        <p>{st.desc}</p>
                       </div>
                     </div>
-                  ))}
+                  )}
                 </div>
-              </div>
+              )}
             </div>
           )}
 
-          {/* Tab 3: Specs */}
+          {/* TAB 2: Yame-doki (Traffic Light Red/Green Cards) */}
+          {activeTab === 'yamedoki' && (
+            <div className="tab-pane">
+              <div className="yame-traffic-box green-box">
+                <div className="traffic-icon">🟢</div>
+                <div className="traffic-info">
+                  <h4>【ヤメてOK】</h4>
+                  <p>{machine.yameRules.stopOk}</p>
+                </div>
+              </div>
+
+              <div className="yame-traffic-box red-box">
+                <div className="traffic-icon">🔴</div>
+                <div className="traffic-info">
+                  <h4>【ヤメ厳禁】</h4>
+                  <p>{machine.yameRules.stopNg}</p>
+                </div>
+              </div>
+
+              {machine.yameRules.tip && (
+                <div className="yame-pro-tip">
+                  <span className="tip-badge">💡 プロの現場メモ</span>
+                  <p>{machine.yameRules.tip}</p>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 3: Specs (Compact Specs Grid) */}
           {activeTab === 'specs' && (
-            <div className="tab-section">
-              <div className="specs-grid">
-                <div className="spec-card">
-                  <span className="label">天井仕様</span>
-                  <span className="value">{machine.specs.ceiling}</span>
+            <div className="tab-pane">
+              <div className="specs-compact-grid">
+                <div className="spec-row">
+                  <span className="spec-name">天井仕様</span>
+                  <span className="spec-data">{machine.specs.ceiling}</span>
                 </div>
-                <div className="spec-card">
-                  <span className="label">コイン持ち</span>
-                  <span className="value">{machine.specs.coin}</span>
+                <div className="spec-row">
+                  <span className="spec-name">初当り確率</span>
+                  <span className="spec-data">{machine.specs.bonusProb}</span>
                 </div>
-                <div className="spec-card">
-                  <span className="label">初当り確率</span>
-                  <span className="value">{machine.specs.bonusProb}</span>
+                <div className="spec-row">
+                  <span className="spec-name">機械割</span>
+                  <span className="spec-data">{machine.specs.payout}</span>
                 </div>
-                <div className="spec-card">
-                  <span className="label">出玉率 (機械割)</span>
-                  <span className="value">{machine.specs.payout}</span>
+                <div className="spec-row">
+                  <span className="spec-name">純増</span>
+                  <span className="spec-data">{machine.specs.pureIncrease}</span>
                 </div>
-                <div className="spec-card">
-                  <span className="label">純増枚数</span>
-                  <span className="value">{machine.specs.pureIncrease}</span>
+                <div className="spec-row">
+                  <span className="spec-name">コイン持ち</span>
+                  <span className="spec-data">{machine.specs.coin}</span>
                 </div>
               </div>
             </div>
           )}
 
-          {/* 🔒 VIP Teaser Banner inside modal */}
-          <div className="vip-locked-box">
-            <div className="vip-badge-ribbon">🔒 VIP限定コミュニティで完全版を公開中</div>
-            <h4>{machine.vipTeaser.title}</h4>
-            <ul className="vip-points">
+          {/* 🔒 VIP Teaser (Gold Compact Ribbon) */}
+          <div className="vip-teaser-compact">
+            <div className="vip-ribbon">🔒 VIP限定コミュニティで公開中</div>
+            <h4 className="vip-teaser-title">{machine.vipTeaser.title}</h4>
+            <ul className="vip-teaser-list">
               {machine.vipTeaser.points.map((pt, i) => (
                 <li key={i}>{pt}</li>
               ))}
             </ul>
-            <div className="vip-cta-row">
-              <div className="vip-price-tag">月額 <strong>¥500</strong>（すべての機種が見放題）</div>
-              <a href="#plans" onClick={onClose} className="btn btn-cta">
-                VIPに参加して完全版を見る →
+            <div className="vip-teaser-action">
+              <span className="price-label">月額 <strong>¥500</strong></span>
+              <a href="#plans" onClick={onClose} className="btn btn-cta btn-compact">
+                VIPでプロボーダーを見る →
               </a>
             </div>
           </div>

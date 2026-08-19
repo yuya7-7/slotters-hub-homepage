@@ -9,28 +9,31 @@ interface MachineCardProps {
 export const MachineCard: React.FC<MachineCardProps> = ({ machine, onSelect }) => {
   return (
     <div className="machine-card" onClick={() => onSelect(machine)}>
-      <div className="machine-header">
-        <div className="machine-maker-tag">{machine.maker}</div>
-        <div className="machine-type-tag">{machine.type}</div>
+      <div className="machine-card-header">
+        <span className="maker-badge">{machine.maker}</span>
+        <span className="type-badge">{machine.type}</span>
       </div>
-      <h3 className="machine-name">{machine.name}</h3>
-      <div className="machine-quick-specs">
-        <div className="spec-badge">
-          <span className="spec-label">天井</span>
-          <span className="spec-value">{machine.specs.ceiling.split('（')[0]}</span>
+
+      <h3 className="machine-card-title">{machine.name}</h3>
+
+      <div className="machine-summary-box">
+        <div className="summary-item">
+          <span className="summary-label">🎯 天井</span>
+          <span className="summary-val">{machine.ceilingSummary}</span>
         </div>
-        <div className="spec-badge">
-          <span className="spec-label">機械割</span>
-          <span className="spec-value">{machine.specs.payout}</span>
+        <div className="summary-item highlight-stop">
+          <span className="summary-label">🛑 ヤメ時</span>
+          <span className="summary-val">{machine.yameDokiSummary}</span>
         </div>
       </div>
-      <div className="machine-features">
-        <span className="feature-pill">👀 示唆 {machine.signals.reduce((acc, cat) => acc + cat.items.length, 0)}種</span>
-        <span className="feature-pill">🛑 やめどきガイド</span>
-        <span className="feature-pill vip-pill">🔒 VIP限定ボーダー</span>
+
+      <div className="machine-signal-preview">
+        <span className="preview-tag">⚡ 注目示唆</span>
+        <span className="preview-text">{machine.highlightSignal}</span>
       </div>
-      <button className="machine-open-btn">
-        無料攻略を見る <span className="arrow">→</span>
+
+      <button className="machine-view-btn">
+        示唆・やめどきを見る <span>→</span>
       </button>
     </div>
   )

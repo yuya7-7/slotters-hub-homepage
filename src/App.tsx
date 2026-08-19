@@ -58,14 +58,14 @@ function App() {
       {/* Hero & Search Section */}
       <section className="hero-section">
         <div className="container">
-          <div className="hero-badge">⚡ ホール現場で迷わない 3秒判別ポータル</div>
+          <div className="hero-badge">⚡ 3秒判別スロット攻略</div>
           <h1 className="hero-title">
             広告ゼロ・爆速検索。<br />
-            現場で3秒でわかるスロット攻略
+            ホールで迷わない示唆＆やめどき
           </h1>
           <p className="hero-desc">
-            終了画面・ボイス・やめどきを完全テキスト化して無料公開。<br />
-            重い広告サイトを開くストレスなく、ホールで最速で判断できます。
+            終了画面・ボイス・やめどきを完全テキスト化。<br />
+            重い広告サイトを開くことなく、片手で最速チェック。
           </p>
 
           <SearchBar
@@ -83,11 +83,8 @@ function App() {
       <section id="machines" className="machines-section container">
         <div className="section-title-wrap">
           <h2 className="section-title">
-            <span>人気機種 示唆・やめどきデータベース</span>
+            <span>人気機種 示唆・やめどき</span>
           </h2>
-          <p className="section-subtitle">
-            気になる機種をタップすると、見るべき示唆演出とやめどき手順が即座に確認できます。
-          </p>
         </div>
 
         {filteredMachines.length > 0 ? (
@@ -122,40 +119,29 @@ function App() {
         <div className="container">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>Slotter's Hub（VIPコミュニティ）が選ばれる理由</span>
+              <span>VIPコミュニティの強み</span>
             </h2>
-            <p className="section-subtitle">
-              無料の示唆まとめに加え、プロ基準の期待値ボーダーと稼働中サポートを完備。
-            </p>
           </div>
           <div className="features-grid">
             <div className="card feature-card">
               <div className="feature-icon">🔒</div>
-              <h3>出玉率106%以上・思考停止ボーダー</h3>
-              <p>
-                スロラボ等の大量実戦値をベースに、差枚優遇・冷遇・リセット短縮を網羅した「このG数から打ってここでヤメる」という迷わないプロボーダーを提供。
-              </p>
+              <h3>106%思考停止ボーダー</h3>
+              <p>差枚優遇・冷遇・短縮を網羅した迷わないプロ基準の立ち回り。</p>
             </div>
             <div className="card feature-card">
               <div className="feature-icon">🚨</div>
-              <h3>稼働中SOS・即レス相談部屋</h3>
-              <p>
-                「今この終了画面が出たけどツッパすべき？」「この差枚で打てる？」など、ホールからのリアルタイムな質問に運営・熟練者が即レスで回答。
-              </p>
+              <h3>稼働中SOS・即レス相談</h3>
+              <p>「この演出出たけどツッパ？」などホールからの質問に即回答。</p>
             </div>
             <div className="card feature-card">
               <div className="feature-icon">🤝</div>
-              <h3>ノリ打ち・パートナー募集掲示板</h3>
-              <p>
-                特日や設定狙いの日に軍資金・リスクを分散するノリ打ち仲間の募集フォーラムを完備。安心・安全な連携環境を整備しています。
-              </p>
+              <h3>ノリ打ち・仲間募集</h3>
+              <p>特日や設定狙いで軍資金・リスクを分散する募集フォーラム。</p>
             </div>
             <div className="card feature-card">
               <div className="feature-icon">📱</div>
-              <h3>ノリ打ち共有メモ＆現場Q&A</h3>
-              <p>
-                LINEやDiscordでそのままパートナーにコピペして指示出しできる共有メモと、現場のリアルな疑問に即答するケーススタディ集を全機種掲載。
-              </p>
+              <h3>共有メモ＆現場Q&A</h3>
+              <p>パートナーにそのまま送れるコピペメモと現場疑問集。</p>
             </div>
           </div>
         </div>
@@ -166,29 +152,23 @@ function App() {
         <div className="container">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>VIPメンバーシップ参加プラン</span>
+              <span>VIPメンバーシップ</span>
             </h2>
-            <p className="section-subtitle">
-              すべての攻略ノート（全25機種以上）・差枚優遇ボーダー・SOS相談部屋が月額500円で使い放題。
-            </p>
           </div>
-          <div className="plans-grid" style={{ maxWidth: '520px', margin: '0 auto' }}>
+          <div className="plans-grid" style={{ maxWidth: '480px', margin: '0 auto' }}>
             <div className="card plan-card featured-plan">
-              <div className="plan-badge">人気No.1・圧倒的コストパフォーマンス</div>
+              <div className="plan-badge">人気No.1・現場特化型</div>
               <h3 className="plan-name">Slotter's Hub VIP会員</h3>
               <div className="plan-price">
                 <span className="currency">¥</span>500
                 <span className="period"> / 月</span>
               </div>
-              <p className="plan-desc">
-                期待値稼働1回で数ヶ月分の会費を回収できる、現場特化型サブスクリプション。
-              </p>
               <ul className="plan-benefits">
-                <li>🔥 全25機種以上の完全攻略ノート（106%思考停止ボーダー）閲覧権</li>
-                <li>📊 差枚優遇・冷遇・15G潜伏天国刈りマニュアル見放題</li>
-                <li>🚨 ホール稼働中SOS・即レス相談部屋（Discord）の無制限利用</li>
-                <li>📱 ノリ打ち・パートナー共有用コピペメモ利用</li>
-                <li>🤝 ノリ打ち仲間募集・ホール状況共有フォーラムの参加権</li>
+                <li>🔥 全25機種以上の完全攻略ノート（106%思考停止ボーダー）</li>
+                <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル見放題</li>
+                <li>🚨 ホール稼働中SOS・即レス相談部屋（Discord）利用権</li>
+                <li>📱 ノリ打ち・パートナー共有用コピペメモ</li>
+                <li>🤝 ノリ打ち仲間募集・ホール状況共有フォーラム</li>
               </ul>
               <a
                 href="https://mosh.jp"
@@ -196,10 +176,10 @@ function App() {
                 rel="noopener noreferrer"
                 className="btn btn-cta plan-btn"
               >
-                今すぐVIPに参加してプロボーダーを見る →
+                VIPに参加してプロボーダーを見る →
               </a>
               <div className="plan-footer-note">
-                ※ いつでもワンクリックで解約可能です。安心してお試しください。
+                ※ いつでもワンクリックで解約可能です。
               </div>
             </div>
           </div>
@@ -210,9 +190,6 @@ function App() {
       <footer className="footer">
         <div className="container footer-content">
           <div className="footer-logo">Slotter's Hub</div>
-          <p className="footer-tagline">
-            広告ゼロ・現場特化型スロット攻略ポータル ＆ プロコミュニティ
-          </p>
           <p className="copyright">© 2026 Slotter's Hub. All rights reserved.</p>
         </div>
       </footer>

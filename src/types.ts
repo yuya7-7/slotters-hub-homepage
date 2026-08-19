@@ -1,21 +1,15 @@
 export interface SignalItem {
+  badge: string
+  character?: string
   content: string
   meaning: string
-  priority: 'high' | 'mid' | 'low'
+  priority: 'danger' | 'warning' | 'normal'
   action?: string
 }
 
 export interface SignalCategory {
   categoryName: string
-  description?: string
   items: SignalItem[]
-}
-
-export interface ModeSignalItem {
-  title: string
-  timing: string
-  stars: string
-  note?: string
 }
 
 export interface Machine {
@@ -25,7 +19,9 @@ export interface Machine {
   maker: string
   type: string
   tags: string[]
-  releaseDate?: string
+  ceilingSummary: string
+  yameDokiSummary: string
+  highlightSignal: string
   specs: {
     ceiling: string
     coin: string
@@ -34,14 +30,14 @@ export interface Machine {
     pureIncrease: string
   }
   signals: SignalCategory[]
-  modeSignals?: {
-    categoryName: string
-    items: ModeSignalItem[]
-  }[]
-  yameDoki: {
-    basic: string
-    checkPoints: string[]
-    steps: { step: number; title: string; desc: string }[]
+  tenkokuSignals?: {
+    danger: string[]   // 即ヤメ厳禁（天国濃厚）
+    warning: string[]  // チャンス（様子見）
+  }
+  yameRules: {
+    stopOk: string     // 🟢 ヤメてOK条件
+    stopNg: string     // 🔴 ヤメ厳禁条件
+    tip?: string
   }
   vipTeaser: {
     title: string
