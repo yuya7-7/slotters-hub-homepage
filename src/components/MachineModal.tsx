@@ -7,7 +7,7 @@ interface MachineModalProps {
 }
 
 export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
-  const [activeTab, setActiveTab] = useState<'signals' | 'yamedoki' | 'specs'>('signals')
+  const [activeTab, setActiveTab] = useState<'aim' | 'yamedoki' | 'settings'>('aim')
 
   if (!machine) return null
 
@@ -24,95 +24,58 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
           <h2 className="modal-name">{machine.name}</h2>
         </div>
 
-        {/* 3 Tab Navigation */}
+        {/* 3 Core Tab Navigation: 狙い目 / やめ時 / 設定示唆 */}
         <div className="modal-nav-tabs">
           <button
-            className={`nav-tab-btn ${activeTab === 'signals' ? 'active' : ''}`}
-            onClick={() => setActiveTab('signals')}
+            className={`nav-tab-btn ${activeTab === 'aim' ? 'active' : ''}`}
+            onClick={() => setActiveTab('aim')}
           >
-            👀 見るべき示唆
+            🎯 狙い目
           </button>
           <button
             className={`nav-tab-btn ${activeTab === 'yamedoki' ? 'active' : ''}`}
             onClick={() => setActiveTab('yamedoki')}
           >
-            🛑 やめどき
+            🛑 やめ時
           </button>
           <button
-            className={`nav-tab-btn ${activeTab === 'specs' ? 'active' : ''}`}
-            onClick={() => setActiveTab('specs')}
+            className={`nav-tab-btn ${activeTab === 'settings' ? 'active' : ''}`}
+            onClick={() => setActiveTab('settings')}
           >
-            📊 スペック
+            🏆 設定示唆
           </button>
         </div>
 
-        {/* Modal Content */}
+        {/* Modal Content Area */}
         <div className="modal-scroll-area">
-          {/* TAB 1: Signals (Visual Card Stack) */}
-          {activeTab === 'signals' && (
+          {/* TAB 1: 🎯 狙い目 & 動画要約 */}
+          {activeTab === 'aim' && (
             <div className="tab-pane">
-              {machine.signals.map((category, idx) => (
-                <div key={idx} className="category-block">
-                  <h3 className="category-heading">{category.categoryName}</h3>
-                  <div className="signal-stack">
-                    {category.items.map((item, i) => (
-                      <div key={i} className={`signal-item-card priority-${item.priority}`}>
-                        <div className="signal-badge-col">
-                          <span className={`status-badge ${item.priority}`}>
-                            {item.badge}
-                          </span>
-                        </div>
-                        <div className="signal-body-col">
-                          <div className="signal-char-quote">
-                            {item.character && <span className="char-name">{item.character}:</span>}
-                            <span className="quote-text">{item.content}</span>
-                          </div>
-                        </div>
-                        {item.action && (
-                          <div className="signal-action-col">
-                            <span className="action-pill">{item.action}</span>
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              {/* プロ動画要約 */}
+              <div className="aim-block video-summary-box">
+                <div className="block-label">🎥 プロ解説動画・実戦検証の要約</div>
+                <ul className="video-summary-list">
+                  {machine.aimPoints.videoSummary.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
 
-              {/* Tenkoku Quick Chips */}
-              {machine.tenkokuSignals && (
-                <div className="category-block">
-                  <h3 className="category-heading">⚡ 通常時の天国（高確）示唆</h3>
-                  
-                  <div className="tenkoku-group danger-group">
-                    <div className="tenkoku-group-title">🔥 即ヤメ厳禁（天国濃厚・ツッパ）</div>
-                    <div className="chip-cloud">
-                      {machine.tenkokuSignals.danger.map((sig, i) => (
-                        <span key={i} className="signal-chip danger-chip">
-                          {sig}
-                        </span>
-                      ))}
+              {/* 打つべき示唆・パターン */}
+              <div className="aim-block triggers-box">
+                <div className="block-label">🔥 見つけたら打つべきモード示唆</div>
+                <div className="trigger-chips">
+                  {machine.aimPoints.triggerSignals.map((sig, i) => (
+                    <div key={i} className="trigger-chip-item">
+                      <span className="bullet">▶</span> {sig}
                     </div>
-                  </div>
-
-                  {machine.tenkokuSignals.warning.length > 0 && (
-                    <div className="tenkoku-group warning-group">
-                      <div className="tenkoku-group-title">✨ チャンス（様子見）</div>
-                      <div className="chip-cloud">
-                        {machine.tenkokuSignals.warning.map((sig, i) => (
-                          <span key={i} className="signal-chip warning-chip">
-                            {sig}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  ))}
                 </div>
-              )}
+              </div>
             </div>
           )}
 
-          {/* TAB 2: Yame-doki (Traffic Light Red/Green Cards) */}
+          {/* TAB 2: 🛑 やめ時（信号機カラー） */}
           {activeTab === 'yamedoki' && (
             <div className="tab-pane">
               <div className="yame-traffic-box green-box">
@@ -140,35 +103,40 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             </div>
           )}
 
-          {/* TAB 3: Specs (Compact Specs Grid) */}
-          {activeTab === 'specs' && (
+          {/* TAB 3: 🏆 設定示唆 */}
+          {activeTab === 'settings' && (
             <div className="tab-pane">
-              <div className="specs-compact-grid">
-                <div className="spec-row">
-                  <span className="spec-name">天井仕様</span>
-                  <span className="spec-data">{machine.specs.ceiling}</span>
+              {machine.settingSignals.map((cat, idx) => (
+                <div key={idx} className="category-block">
+                  <h3 className="category-heading">{cat.categoryName}</h3>
+                  <div className="signal-stack">
+                    {cat.items.map((item, i) => (
+                      <div key={i} className={`signal-item-card priority-${item.priority}`}>
+                        <div className="signal-badge-col">
+                          <span className={`status-badge ${item.priority}`}>
+                            {item.badge}
+                          </span>
+                        </div>
+                        <div className="signal-body-col">
+                          <div className="signal-char-quote">
+                            {item.character && <span className="char-name">{item.character}:</span>}
+                            <span className="quote-text">{item.content}</span>
+                          </div>
+                        </div>
+                        {item.action && (
+                          <div className="signal-action-col">
+                            <span className="action-pill">{item.action}</span>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="spec-row">
-                  <span className="spec-name">初当り確率</span>
-                  <span className="spec-data">{machine.specs.bonusProb}</span>
-                </div>
-                <div className="spec-row">
-                  <span className="spec-name">機械割</span>
-                  <span className="spec-data">{machine.specs.payout}</span>
-                </div>
-                <div className="spec-row">
-                  <span className="spec-name">純増</span>
-                  <span className="spec-data">{machine.specs.pureIncrease}</span>
-                </div>
-                <div className="spec-row">
-                  <span className="spec-name">コイン持ち</span>
-                  <span className="spec-data">{machine.specs.coin}</span>
-                </div>
-              </div>
+              ))}
             </div>
           )}
 
-          {/* 🔒 VIP Teaser (Gold Compact Ribbon) */}
+          {/* 🔒 VIP Teaser */}
           <div className="vip-teaser-compact">
             <div className="vip-ribbon">🔒 VIP限定コミュニティで公開中</div>
             <h4 className="vip-teaser-title">{machine.vipTeaser.title}</h4>

@@ -393,6 +393,79 @@
   gap: 16px;
 }
 
+/* 🎯 Aim Points Styles */
+.aim-block {
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.video-summary-box {
+  background: #f0fdf4;
+  border: 1.5px solid #bbf7d0;
+}
+
+.triggers-box {
+  background: #fff7ed;
+  border: 1.5px solid #ffedd5;
+}
+
+.block-label {
+  font-size: 0.95rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.video-summary-box .block-label {
+  color: #166534;
+}
+
+.triggers-box .block-label {
+  color: #c2410c;
+}
+
+.video-summary-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0;
+}
+
+.video-summary-list li {
+  font-size: 0.85rem;
+  color: #1e293b;
+  line-height: 1.5;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #22c55e;
+}
+
+.trigger-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trigger-chip-item {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #9a3412;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid #f97316;
+}
+
+.trigger-chip-item .bullet {
+  color: #ea580c;
+  margin-right: 4px;
+}
+
 /* Signal Stack Cards */
 .category-block {
   margin-bottom: 12px;
