@@ -34,11 +34,11 @@ function App() {
           </div>
           <nav className="nav-links">
             <a href="#features" className="nav-link">特徴</a>
-            <a href="#plans" className="nav-link">VIPプラン</a>
+            <a href="#plans" className="nav-link">料金プラン</a>
             <a href="#machines" className="nav-link">機種一覧</a>
           </nav>
           <a href="#plans" className="btn btn-primary header-cta">
-            🔒 VIPプラン (月額¥500)
+            会員登録 (月額¥500〜)
           </a>
         </div>
       </header>
@@ -90,30 +90,60 @@ function App() {
         {/* Section Divider */}
         <hr className="section-divider" />
 
-        {/* 2. VIP Pricing Section (VIPメンバーシップ参加プラン) */}
+        {/* 2. VIP Pricing Section (2段階料金プラン) */}
         <section id="plans" className="plans-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>VIPメンバーシップ参加プラン</span>
+              <span>メンバーシップ参加プラン</span>
             </h2>
             <p className="section-subtitle">
-              すべての攻略ノート（全25機種以上）・差枚優遇ボーダー・SOS相談部屋が月額500円で使い放題。
+              ご自身の稼働スタイルに合わせて選べる2つのプランをご用意しています。
             </p>
           </div>
-          <div className="plans-grid" style={{ maxWidth: '480px', margin: '0 auto' }}>
-            <div className="card plan-card featured-plan">
-              <div className="plan-badge">人気No.1・現場特化型</div>
-              <h3 className="plan-name">Slotter's Hub VIP会員</h3>
+
+          <div className="plans-grid-two">
+            {/* Standard Plan (¥500) */}
+            <div className="card plan-card standard-plan">
+              <div className="plan-type-badge standard-badge">エントリー</div>
+              <h3 className="plan-name">スタンダード会員</h3>
               <div className="plan-price">
                 <span className="currency">¥</span>500
                 <span className="period"> / 月</span>
               </div>
+              <p className="plan-target">手軽にプロの期待値ボーダーで勝ちたい方向け</p>
               <ul className="plan-benefits">
-                <li>🔥 全25機種以上の完全攻略ノート（106%思考停止ボーダー）</li>
-                <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル見放題</li>
-                <li>🚨 ホール稼働中SOS・即レス相談部屋（Discord）利用権</li>
-                <li>📱 ノリ打ち・パートナー共有用コピペメモ利用</li>
-                <li>🤝 ノリ打ち仲間募集・ホール状況共有フォーラムの参加権</li>
+                <li>🔥 全25機種以上 攻略ノート（106%ボーダー）読み放題</li>
+                <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル</li>
+                <li>📱 ノリ打ち・パートナー共有用コピペメモ</li>
+                <li>💬 メンバー専用Discord（一般・収支報告）参加権</li>
+                <li className="benefit-disabled">✕ 稼働中SOS・即レス質問（閲覧のみ）</li>
+                <li className="benefit-disabled">✕ ノリ打ちマッチング・仲間募集機能</li>
+              </ul>
+              <a
+                href="https://mosh.jp"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline plan-btn"
+              >
+                スタンダードに参加（¥500）
+              </a>
+            </div>
+
+            {/* Premium Plan (¥1,900) */}
+            <div className="card plan-card featured-plan">
+              <div className="plan-type-badge premium-badge">おすすめ・本気で稼ぐ方向け</div>
+              <h3 className="plan-name">プレミアム（プロ）会員</h3>
+              <div className="plan-price">
+                <span className="currency">¥</span>1,900
+                <span className="period"> / 月</span>
+              </div>
+              <p className="plan-target">リアルタイムSOS・新台最速情報で勝ち越す本気層向け</p>
+              <ul className="plan-benefits">
+                <li>🔥 <strong>スタンダードの全特典</strong>をすべて含む</li>
+                <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先回答）</strong></li>
+                <li>⚡ <strong>導入初週の新台最速実戦・未公開データ速報</strong></li>
+                <li>🤝 <strong>ノリ打ち仲間募集・マッチング掲示板の利用権</strong></li>
+                <li>🎖️ <strong>Discord限定 プレミアムプロ認証バッジ付与</strong></li>
               </ul>
               <a
                 href="https://mosh.jp"
@@ -121,12 +151,13 @@ function App() {
                 rel="noopener noreferrer"
                 className="btn btn-cta plan-btn"
               >
-                VIPに参加してプロボーダーを見る →
+                プレミアムに参加（¥1,900） →
               </a>
-              <div className="plan-footer-note">
-                ※ いつでもワンクリックで解約可能です。安心してお試しください。
-              </div>
             </div>
+          </div>
+
+          <div className="plans-footer-note">
+            ※ いつでもワンクリックでプラン変更・解約が可能です。安心してお試しください。
           </div>
         </section>
 
