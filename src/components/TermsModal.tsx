@@ -24,9 +24,12 @@ export const TermsModal: React.FC<TermsModalProps> = ({ isOpen, onClose }) => {
         {/* Modal Scroll Area */}
         <div className="modal-scroll-area terms-content">
           <section className="terms-section">
-            <h3>第1条（適用）</h3>
+            <h3>第1条（適用および利用資格）</h3>
             <p>
-              本利用規約（以下「本規約」）は、Slotter's Hub（以下「当コミュニティ」）が提供するすべてのサービス（Webサイト、Discordサーバー、有料攻略ノート、ノリ打ちマッチング機能等）の利用条件を定めるものです。すべての会員・利用者は本規約に同意の上で当サービスをご利用いただきます。
+              1. 本利用規約（以下「本規約」）は、Slotter's Hub（以下「当コミュニティ」）が提供するすべてのサービス（Webサイト、Discordサーバー、有料攻略ノート、ノリ打ちマッチング機能等）の利用条件を定めるものです。すべての会員・利用者は本規約に同意の上で当サービスをご利用いただきます。
+            </p>
+            <p>
+              2. <strong>【年齢制限・利用資格】</strong> 当コミュニティおよび有料プランは<strong>18歳以上（高校生を除く）</strong>を対象としております。会員登録、有料プランの決済、またはDiscordへの参加手続きを完了した時点で、利用者は18歳以上（高校生でないこと）に該当し、本条に同意・申告したものとみなします。
             </p>
           </section>
 
