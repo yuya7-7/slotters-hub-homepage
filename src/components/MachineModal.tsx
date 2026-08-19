@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import type { Machine } from '../types'
 
 interface MachineModalProps {
@@ -8,22 +8,39 @@ interface MachineModalProps {
 
 export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) => {
   const [activeTab, setActiveTab] = useState<'aim' | 'yamedoki' | 'settings'>('aim')
-  // Accordion open/close state for categories in the 示唆 tab (default all open)
+  // Accordion state: default all closed ({})
   const [openCategories, setOpenCategories] = useState<{ [key: number]: boolean }>({})
+
+  // Reset category state when machine changes
+  useEffect(() => {
+    setOpenCategories({})
+  }, [machine?.id])
 
   if (!machine) return null
 
   const toggleCategory = (idx: number) => {
     setOpenCategories((prev) => ({
       ...prev,
-      // If undefined, default was open (true), so toggle to false
-      [idx]: prev[idx] === undefined ? false : !prev[idx],
+      [idx]: !prev[idx],
     }))
   }
 
   const isCategoryOpen = (idx: number) => {
-    // Default is open (true)
-    return openCategories[idx] !== false
+    return Boolean(openCategories[idx])
+  }
+
+  const allOpen = machine.settingSignals.length > 0 && machine.settingSignals.every((_, i) => openCategories[i])
+
+  const toggleAllCategories = () => {
+    if (allOpen) {
+      setOpenCategories({})
+    } else {
+      const all: { [key: number]: boolean } = {}
+      machine.settingSignals.forEach((_, i) => {
+        all[i] = true
+      })
+      setOpenCategories(all)
+    }
   }
 
   return (
@@ -118,12 +135,20 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             </div>
           )}
 
-          {/* TAB 3: 🏆 示唆 (アコーディオン・プルダウン開閉対応) */}
+          {/* TAB 3: 🏆 示唆 (デフォルト閉じた状態・タップで開閉) */}
           {activeTab === 'settings' && (
             <div className="tab-pane">
-              <div className="accordion-help-note">
-                ※ 題名をタップすると示唆の開閉（プルダウン）ができます
+              <div className="accordion-control-bar">
+                <span className="accordion-guide-text">題名をタップして詳細を表示</span>
+                <button
+                  type="button"
+                  className="accordion-toggle-all-btn"
+                  onClick={toggleAllCategories}
+                >
+                  {allOpen ? 'すべて閉じる' : 'すべて開く'}
+                </button>
               </div>
+
               {machine.settingSignals.map((cat, idx) => {
                 const isOpen = isCategoryOpen(idx)
                 return (
