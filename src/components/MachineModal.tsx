@@ -83,9 +83,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
           {/* TAB 1: 🎯 狙い目 & 動画要約 */}
           {activeTab === 'aim' && (
             <div className="tab-pane">
-              {/* プロ動画要約 */}
+              {/* 狙い目の要約 */}
               <div className="aim-block video-summary-box">
-                <div className="block-label">🎥 プロ解説動画・実戦検証の要約</div>
+                <div className="block-label">🎯 狙い目の要約</div>
                 <ul className="video-summary-list">
                   {machine.aimPoints.videoSummary.map((item, i) => (
                     <li key={i}>{item}</li>
