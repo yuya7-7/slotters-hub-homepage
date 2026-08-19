@@ -110,14 +110,15 @@ function App() {
                 <span className="currency">¥</span>500
                 <span className="period"> / 月</span>
               </div>
-              <p className="plan-target">手軽にプロの期待値ボーダーで勝ちたい方向け</p>
+              <p className="plan-target">プロの募集に参加 ＆ 仲間と交流したい方向け</p>
               <ul className="plan-benefits">
-                <li>🔥 全25機種以上 攻略ノート（106%ボーダー）読み放題</li>
-                <li>📊 差枚優遇・冷遇・15G天国刈りマニュアル</li>
-                <li>📱 ノリ打ち・パートナー共有用コピペメモ</li>
-                <li>💬 メンバー専用Discord（一般・収支報告）参加権</li>
-                <li>🤝 <strong>ノリ打ち募集への「応募・参加」権</strong></li>
-                <li className="benefit-disabled">✕ 稼働中SOS・即レス質問（閲覧のみ）</li>
+                <li>🤝 <strong>ノリ打ち募集への「閲覧 ＆ 応募・参加」権</strong></li>
+                <li>🚨 <strong>稼働中SOS部屋の「リアルタイム閲覧（過去ログ見放題）」</strong></li>
+                <li>📊 <strong>全国のホール生情報・設定状況共有スレッド参加</strong></li>
+                <li>💬 メンバー専用Discord（一般・雑談・収支報告）参加権</li>
+                <li>📱 トラブル防止！ノリ打ち清算ルール＆収支管理テンプレ</li>
+                <li className="benefit-disabled">✕ 全機種106%攻略ノート（思考停止ボーダー）</li>
+                <li className="benefit-disabled">✕ 稼働中SOSの「直接質問・個別相談」</li>
                 <li className="benefit-disabled">✕ ノリ打ちの「新規募集作成」権</li>
               </ul>
               <a
@@ -138,13 +139,15 @@ function App() {
                 <span className="currency">¥</span>1,900
                 <span className="period"> / 月</span>
               </div>
-              <p className="plan-target">リアルタイムSOS・新台最速情報で勝ち越す本気層向け</p>
+              <p className="plan-target">106%攻略ノート・リアルタイムSOSで毎月勝ち越す本気層向け</p>
               <ul className="plan-benefits">
-                <li>🔥 <strong>スタンダードの全特典</strong>をすべて含む</li>
-                <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先回答）</strong></li>
+                <li>🔥 <strong>全25機種以上 完全攻略ノート（106%思考停止ボーダー）読み放題</strong></li>
+                <li>📊 <strong>差枚優遇・冷遇・15G天国刈りマニュアル見放題</strong></li>
+                <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先直接質問）</strong></li>
                 <li>⚡ <strong>導入初週の新台最速実戦・未公開データ速報</strong></li>
                 <li>🤝 <strong>ノリ打ち仲間マッチング「新規募集・作成」権</strong></li>
                 <li>🎖️ <strong>Discord限定 プレミアムプロ認証バッジ付与</strong></li>
+                <li>✓ スタンダードの全特典（コミュニティ交流等）をすべて含む</li>
               </ul>
               <a
                 href="https://mosh.jp"
