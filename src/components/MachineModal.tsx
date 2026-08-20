@@ -197,9 +197,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             </div>
           )}
 
-          {/* 🔒 VIP Teaser (Premium Exclusive Teaser) */}
+          {/* 🔒 VIP Teaser (Pre-Open Free Access) */}
           <div className="vip-teaser-compact">
-            <div className="vip-ribbon">🔒 プレミアム限定 完全攻略ノート（近日公開）</div>
+            <div className="vip-ribbon">🎉 プレオープン中！完全攻略ノートを無料開放中</div>
             <h4 className="vip-teaser-title">{machine.vipTeaser.title}</h4>
             <ul className="vip-teaser-list">
               {machine.vipTeaser.points.map((pt, i) => (
@@ -207,9 +207,9 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
               ))}
             </ul>
             <div className="vip-teaser-action">
-              <span className="price-label">先行エントリー <strong>¥500</strong>/月</span>
+              <span className="price-label">プレオープン <strong>完全無料（0円）</strong></span>
               <a href="#plans" onClick={onClose} className="btn btn-cta btn-compact">
-                まずはスタンダード（¥500）で参加する →
+                今すぐDiscordで無料体験する →
               </a>
             </div>
           </div>

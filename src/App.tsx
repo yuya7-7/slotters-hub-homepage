@@ -40,7 +40,7 @@ function App() {
             <a href="#machines" className="nav-link">機種一覧</a>
           </nav>
           <a href="#plans" className="btn btn-primary header-cta">
-            会員登録 (月額¥500〜)
+            🔥 無料プレオープン参加
           </a>
         </div>
       </header>
@@ -51,7 +51,7 @@ function App() {
         <section id="features" className="features-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>Slotter's Hub（VIPコミュニティ）の特徴</span>
+              <span>Slotter's Hub コミュニティの特徴</span>
             </h2>
             <p className="section-subtitle">
               無料の示唆まとめに加え、プロ基準の期待値ボーダーと稼働中サポートを完備。
@@ -92,25 +92,42 @@ function App() {
         {/* Section Divider */}
         <hr className="section-divider" />
 
-        {/* 2. VIP Pricing Section (2段階料金プラン) */}
+        {/* 2. VIP Pricing Section (無料プレオープン ＆ 有料プラン準備中) */}
         <section id="plans" className="plans-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>メンバーシップ参加プラン</span>
+              <span>コミュニティ参加 ＆ プラン案内</span>
             </h2>
             <p className="section-subtitle">
-              ご自身の稼働スタイルに合わせて選べる2つのプランをご用意しています。
+              🎉 <strong>先行プレオープン開催中！</strong> 現在すべての機能を【完全無料】でお試しいただけます。
             </p>
           </div>
 
+          {/* Big Pre-Open CTA Banner */}
+          <div className="pre-open-banner card">
+            <div className="pre-open-badge">🔥 期間限定・完全無料</div>
+            <h3 className="pre-open-title">先行プレオープン Discord無料参加受付中！</h3>
+            <p className="pre-open-desc">
+              ノリ打ち募集・全国ホール情報・稼働中SOS・完全攻略ノートなど、全機能を今だけ完全無料で使い放題！
+            </p>
+            <a
+              href="https://discord.gg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-cta pre-open-btn"
+            >
+              今すぐDiscordに無料参加する（0円） →
+            </a>
+          </div>
+
           <div className="plans-grid-two">
-            {/* Standard Plan (¥500 - Active Main CTA) */}
-            <div className="card plan-card standard-plan featured-standard">
-              <div className="plan-type-badge standard-badge">🔥 先行募集中・ワンコイン</div>
+            {/* Standard Plan (¥500 - In Prep) */}
+            <div className="card plan-card standard-plan coming-soon-plan">
+              <div className="plan-type-badge standard-badge">📌 正式オープン時に導入予定</div>
               <h3 className="plan-name">スタンダード会員</h3>
               <div className="plan-price">
                 <span className="currency">¥</span>500
-                <span className="period"> / 月</span>
+                <span className="period"> / 月（予定）</span>
               </div>
               <p className="plan-target">ノリ打ち仲間を探したい ＆ 全国のホール情報を見たい方向け</p>
               <ul className="plan-benefits">
@@ -119,27 +136,26 @@ function App() {
                 <li>📊 <strong>全国のホール生情報・設定状況共有スレッド参加</strong></li>
                 <li>💬 メンバー専用Discord（一般・雑談・収支報告）参加権</li>
                 <li>📱 トラブル防止！ノリ打ち清算ルール＆収支管理テンプレ</li>
-                <li className="benefit-disabled">🔒 全機種106%攻略ノート（プレミアムで近日解禁）</li>
+                <li className="benefit-disabled">🔒 全機種106%攻略ノート（プレミアムで解禁）</li>
                 <li className="benefit-disabled">🔒 稼働中SOSの「直接質問・個別相談」</li>
                 <li className="benefit-disabled">🔒 ノリ打ちの「新規募集作成」権</li>
               </ul>
-              <a
-                href="https://mosh.jp"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-cta plan-btn"
+              <button
+                type="button"
+                className="btn btn-coming-soon plan-btn"
+                disabled
               >
-                スタンダードに参加（¥500/月） →
-              </a>
+                🔒 プレオープン中は無料開放中
+              </button>
             </div>
 
-            {/* Premium Plan (¥1,900 - Coming Soon Teaser) */}
+            {/* Premium Plan (¥1,900 - In Prep) */}
             <div className="card plan-card premium-plan coming-soon-plan">
-              <div className="plan-type-badge coming-soon-badge">🔒 近日解禁予定（Coming Soon）</div>
+              <div className="plan-type-badge coming-soon-badge">🔒 正式オープン時に導入予定</div>
               <h3 className="plan-name">プレミアム（プロ）会員</h3>
               <div className="plan-price">
                 <span className="currency">¥</span>1,900
-                <span className="period"> / 月</span>
+                <span className="period"> / 月（予定）</span>
               </div>
               <p className="plan-target">106%思考停止ボーダー・優先SOSで本気で勝ち越すプロ向け</p>
               <ul className="plan-benefits">
@@ -156,7 +172,7 @@ function App() {
                 className="btn btn-coming-soon plan-btn"
                 disabled
               >
-                🔒 近日公開予定（準備中）
+                🔒 プレオープン中は無料開放中
               </button>
             </div>
           </div>
