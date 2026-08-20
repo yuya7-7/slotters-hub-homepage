@@ -85,10 +85,10 @@ function App() {
               </p>
             </div>
             <div className="card feature-card">
-              <div className="feature-icon">📱</div>
-              <h3>ノリ打ち共有メモ＆現場Q&A</h3>
+              <div className="feature-icon">🧪</div>
+              <h3>噂の狙い目・仮説検証フォーラム</h3>
               <p>
-                LINEやDiscordでそのままパートナーにコピペして指示出しできる共有メモと、現場の疑問に即答するケーススタディ集。
+                「このやめ時勝てる？」「ネットの噂って本当？」など、気になる狙い目や独自仮説をメンバー同士で実戦検証・議論。
               </p>
             </div>
           </div>
