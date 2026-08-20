@@ -208,7 +208,13 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             </ul>
             <div className="vip-teaser-action">
               <span className="price-label">プレオープン <strong>完全無料（0円）</strong></span>
-              <a href="#plans" onClick={onClose} className="btn btn-cta btn-compact">
+              <a
+                href="https://discord.gg/8jx7U9SnXp"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={onClose}
+                className="btn btn-cta btn-compact"
+              >
                 今すぐDiscordで無料体験する →
               </a>
             </div>

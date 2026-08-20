@@ -39,7 +39,12 @@ function App() {
             <a href="#plans" className="nav-link">料金プラン</a>
             <a href="#machines" className="nav-link">機種一覧</a>
           </nav>
-          <a href="#plans" className="btn btn-primary header-cta">
+          <a
+            href="https://discord.gg/8jx7U9SnXp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-primary header-cta"
+          >
             🔥 無料プレオープン参加
           </a>
         </div>
@@ -111,7 +116,7 @@ function App() {
               ノリ打ち募集・全国ホール情報・稼働中SOS・完全攻略ノートなど、全機能を今だけ完全無料で使い放題！
             </p>
             <a
-              href="https://discord.gg"
+              href="https://discord.gg/8jx7U9SnXp"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-cta pre-open-btn"
