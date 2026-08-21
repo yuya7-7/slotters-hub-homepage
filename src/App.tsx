@@ -56,39 +56,39 @@ function App() {
         <section id="features" className="features-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>Slotter's Hub コミュニティの特徴</span>
+              <span>一人で打つより、仲間と打つ方が100倍面白い！</span>
             </h2>
             <p className="section-subtitle">
-              無料の示唆まとめに加え、プロ基準の期待値ボーダーと稼働中サポートを完備。
+              ノリ打ち募集・稼働中SOS・噂の仮説検証・タコ負け供養まで。スロッターが集まる共闘コミュニティ＆現場カンペポータル。
             </p>
           </div>
           <div className="features-grid">
             <div className="card feature-card">
-              <div className="feature-icon">🔒</div>
-              <h3>106%思考停止ボーダー</h3>
+              <div className="feature-icon">🤝</div>
+              <h3>ノリ打ち・相方募集ラウンジ</h3>
               <p>
-                スロラボ等の大量実戦値をベースに、差枚優遇・冷遇・リセット短縮を網羅した迷わないプロ基準の立ち回りを提供。
+                特日や設定狙いの日の軍資金・リスク分散に。近くのホール仲間探しや遠征パートナーをいつでも募集・マッチング。
               </p>
             </div>
             <div className="card feature-card">
               <div className="feature-icon">🚨</div>
-              <h3>稼働中SOS・即レス相談部屋</h3>
+              <h3>稼働中SOS・現場リアルタイム相談</h3>
               <p>
-                「今この終了画面が出たけどツッパ？」「この差枚で打てる？」など、ホールからのリアルタイムな質問に即回答。
-              </p>
-            </div>
-            <div className="card feature-card">
-              <div className="feature-icon">🤝</div>
-              <h3>ノリ打ち・パートナー募集</h3>
-              <p>
-                特日や設定狙いの日に軍資金・リスクを分散するノリ打ち仲間募集フォーラムを完備。
+                「今この終了画面が出たけどツッパ？」「何Gでやめる？」など、ホール現場からの疑問にメンバー同士がリアルタイムで助け合い。
               </p>
             </div>
             <div className="card feature-card">
               <div className="feature-icon">🧪</div>
-              <h3>噂の狙い目・仮説検証フォーラム</h3>
+              <h3>噂の狙い目・仮説検証ラボ</h3>
               <p>
                 「このやめ時勝てる？」「ネットの噂って本当？」など、気になる狙い目や独自仮説をメンバー同士で実戦検証・議論。
+              </p>
+            </div>
+            <div className="card feature-card">
+              <div className="feature-icon">😭</div>
+              <h3>タコ負け供養 ＆ 稼働報告</h3>
+              <p>
+                大負けの下振れ供養・愚痴吐き出しから、万枚・フリーズの勝ち自慢まで。スロット好き同士で熱く語り合える最高の居場所。
               </p>
             </div>
           </div>
@@ -194,10 +194,10 @@ function App() {
         <section id="machines" className="machines-section">
           <div className="section-title-wrap">
             <h2 className="section-title">
-              <span>機種一覧（示唆・やめ時・狙い目）</span>
+              <span>現場用カンペ（示唆・やめ時・狙い目）</span>
             </h2>
             <p className="section-subtitle">
-              気になる機種をタップすると、3大アクション（狙い目・やめ時・示唆）が即座に確認できます。
+              ホールでサクッと1秒確認できる広告ゼロのカンペポータル。気になる機種をタップすると、3大アクションが即座に確認できます。
             </p>
           </div>
 
