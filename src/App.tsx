@@ -81,7 +81,7 @@ function App() {
               <div className="feature-icon">🧪</div>
               <h3>噂の狙い目・仮説検証ラボ</h3>
               <p>
-                「このやめ時勝てる？」「ネットの噂って本当？」など、気になる狙い目や独自仮説をメンバー同士で実戦検証・議論。
+                話題の有料noteや噂をメンバー投票で選定 ➔ 運営費で購入して共同実戦検証！自腹を切らずに【ガチかガセか】を暴く最強の実験室。
               </p>
             </div>
             <div className="card feature-card">
@@ -126,7 +126,7 @@ function App() {
           </div>
 
           <div className="plans-grid-two">
-            {/* Standard Plan (¥500 - In Prep) */}
+            {/* Standard Plan (In Prep) */}
             <div className="card plan-card standard-plan coming-soon-plan">
               <div className="plan-type-badge standard-badge">📌 正式オープン時に導入予定</div>
               <h3 className="plan-name">スタンダード会員</h3>
@@ -141,6 +141,7 @@ function App() {
                 <li>📊 <strong>全国のホール生情報・設定状況共有スレッド参加</strong></li>
                 <li>💬 メンバー専用Discord（一般・雑談・収支報告）参加権</li>
                 <li>📱 トラブル防止！ノリ打ち清算ルール＆収支管理テンプレ</li>
+                <li className="benefit-disabled">🔒 噂の狙い目・仮説検証ラボ（プレミアムで解禁）</li>
                 <li className="benefit-disabled">🔒 全機種106%攻略ノート（プレミアムで解禁）</li>
                 <li className="benefit-disabled">🔒 稼働中SOSの「直接質問・個別相談」</li>
                 <li className="benefit-disabled">🔒 ノリ打ちの「新規募集作成」権</li>
@@ -154,7 +155,7 @@ function App() {
               </button>
             </div>
 
-            {/* Premium Plan (¥1,900 - In Prep) */}
+            {/* Premium Plan (In Prep) */}
             <div className="card plan-card premium-plan coming-soon-plan">
               <div className="plan-type-badge coming-soon-badge">🔒 正式オープン時に導入予定</div>
               <h3 className="plan-name">プレミアム（プロ）会員</h3>
@@ -162,8 +163,9 @@ function App() {
                 <span className="currency">¥</span>1,900
                 <span className="period"> / 月（予定）</span>
               </div>
-              <p className="plan-target">106%思考停止ボーダー・優先SOSで本気で勝ち越すプロ向け</p>
+              <p className="plan-target">106%思考停止ボーダー・仮説検証ラボで本気で勝ち越すプロ向け</p>
               <ul className="plan-benefits">
+                <li>🧪 <strong>噂の狙い目・仮説検証ラボ（話題の有料noteを運営費で購入＆共同検証）</strong></li>
                 <li>🔥 <strong>全25機種以上 完全攻略ノート（106%思考停止ボーダー）読み放題</strong></li>
                 <li>📊 <strong>差枚優遇・冷遇・15G天国刈りマニュアル見放題</strong></li>
                 <li>🚨 <strong>ホール稼働中SOS・即レス相談部屋（優先直接質問）</strong></li>
