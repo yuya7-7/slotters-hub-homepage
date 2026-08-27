@@ -209,7 +209,7 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
             <div className="vip-teaser-action">
               <span className="price-label">プレオープン <strong>完全無料（0円）</strong></span>
               <a
-                href="https://discord.gg/8jx7U9SnXp"
+                href="https://discord.gg/ky6Capbbdn"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={onClose}
