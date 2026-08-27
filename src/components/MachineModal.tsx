@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import type { Machine } from '../types'
+import { generateNoteMarkdown, copyToClipboard } from '../utils/copyNote'
 
 interface MachineModalProps {
   machine: Machine | null
@@ -10,13 +11,24 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
   const [activeTab, setActiveTab] = useState<'aim' | 'yamedoki' | 'settings'>('aim')
   // Accordion state: default all closed ({})
   const [openCategories, setOpenCategories] = useState<{ [key: number]: boolean }>({})
+  const [copied, setCopied] = useState(false)
 
   // Reset category state when machine changes
   useEffect(() => {
     setOpenCategories({})
+    setCopied(false)
   }, [machine?.id])
 
   if (!machine) return null
+
+  const handleCopyNote = async () => {
+    const markdown = generateNoteMarkdown(machine)
+    const success = await copyToClipboard(markdown)
+    if (success) {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    }
+  }
 
   const toggleCategory = (idx: number) => {
     setOpenCategories((prev) => ({
@@ -51,9 +63,19 @@ export const MachineModal: React.FC<MachineModalProps> = ({ machine, onClose }) 
           ✕
         </button>
 
-        {/* Modal Top Header */}
+        {/* Modal Top Header with Copy Button */}
         <div className="modal-header-compact">
-          <h2 className="modal-name">{machine.name}</h2>
+          <div className="modal-title-row">
+            <h2 className="modal-name">{machine.name}</h2>
+            <button
+              type="button"
+              className={`btn-copy-note ${copied ? 'copied' : ''}`}
+              onClick={handleCopyNote}
+              title="noteやLINEに貼り付けられる攻略テキストをコピー"
+            >
+              {copied ? '✅ コピー完了！' : '📋 攻略ノートをコピー'}
+            </button>
+          </div>
         </div>
 
         {/* 3 Core Tab Navigation: 狙い目 / やめ時 / 示唆 */}
