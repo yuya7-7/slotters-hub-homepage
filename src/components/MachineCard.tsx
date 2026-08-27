@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import type { Machine } from '../types'
-import { generateNoteMarkdown, copyToClipboard } from '../utils/copyNote'
 
 interface MachineCardProps {
   machine: Machine
@@ -8,31 +7,9 @@ interface MachineCardProps {
 }
 
 export const MachineCard: React.FC<MachineCardProps> = ({ machine, onSelect }) => {
-  const [copied, setCopied] = useState(false)
-
-  const handleQuickCopy = async (e: React.MouseEvent) => {
-    e.stopPropagation() // モーダルが開かないようにバブリング停止
-    const markdown = generateNoteMarkdown(machine)
-    const success = await copyToClipboard(markdown)
-    if (success) {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    }
-  }
-
   return (
     <div className="machine-card" onClick={() => onSelect(machine)}>
-      <div className="machine-card-top-row">
-        <h3 className="machine-card-title">{machine.name}</h3>
-        <button
-          type="button"
-          className={`btn-card-quick-copy ${copied ? 'copied' : ''}`}
-          onClick={handleQuickCopy}
-          title="この機種の攻略ノートをクリップボードにコピー"
-        >
-          {copied ? '✅ コピー済' : '📋 コピー'}
-        </button>
-      </div>
+      <h3 className="machine-card-title">{machine.name}</h3>
 
       <div className="machine-summary-box">
         <div className="summary-item">
